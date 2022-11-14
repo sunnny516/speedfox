@@ -4,8 +4,9 @@
 
 
 
-## Features
+## 你好,欢迎访问垃圾堆
 代码写的很屎,几乎不能运行（
+我自己都看不懂(
 
 ### Modes
 - ProcessMode - Use Netfilter driver to intercept process traffic
