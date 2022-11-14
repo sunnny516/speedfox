@@ -1,0 +1,21 @@
+version: 2
+updates:
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "daily"
+      time: "00:00"
+      timezone: "Asia/Shanghai"
+    labels:
+      - "automatic"
+    open-pull-requests-limit: 114514
+
+  - package-ecosystem: "nuget"
+    directory: "/"
+    schedule:
+      interval: "daily"
+      time: "00:10"
+      timezone: "Asia/Shanghai"
+    labels:
+      - "automatic"
+    open-pull-requests-limit: 114514

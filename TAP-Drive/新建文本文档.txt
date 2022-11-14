@@ -1,0 +1,19 @@
+route add 20.210.208.48 mask 255.255.255.255 192.168.0.1 添加代理服务器走系统网卡出口
+route add 1.1.1.1 mask 255.255.255.255 10.0.0.1 添加dns服务器走代理出口
+route add 8.8.8.8 mask 255.255.255.255 10.0.0.1 添加dns服务器走代理出口
+route add 104.18.114.97 mask 255.255.255.255 10.0.0.1 添加游戏服务器IP服务器走代理出口
+route add 104.18.115.97 mask 255.255.255.255 10.0.0.1 添加游戏服务器IP服务器走代理出口
+
+route delete 20.210.208.48 删除代理服务器走系统网卡出口
+route delete 1.1.1.1 删除dns服务器走代理出口
+route delete 8.8.8.8 删除dns服务器走代理出口
+route delete 104.18.114.97 删除游戏服务器IP服务器走代理出口
+route delete 104.18.115.97 删除游戏服务器IP服务器走代理出口
+
+netstat -nr 查看路由表
+
+C:\Users\11546\Desktop\极狐加速器\加速核心\V2\TAP-Drive/TAPTool.exe install C:\Users\11546\Desktop\极狐加速器\加速核心\V2\TAP-Drive\OemVista.inf tap0901 安装驱动
+
+[Path]TAP-Drive/TAPTool.exe remove tap0901 卸载驱动
+
+"TAP-Drive-SocksProxy.exe" -tunAddr="10.0.0.10" -tunGw="10.0.0.1" -proxyType="socks" -proxyServer="20.239.132.243:65500" -dnsServer="1.1.1.1,8.8.8.8"

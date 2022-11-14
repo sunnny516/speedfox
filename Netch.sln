@@ -1,0 +1,41 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31423.177
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Netch", "Netch\Netch.csproj", "{4B041B91-5790-4571-8C58-C63FFE4BC9F8}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnitTest", "UnitTest\UnitTest.csproj", "{38240783-9AD2-4A01-84C1-1A3E5F05720F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AdditionalFiles", "AdditionalFiles", "{B7354F81-F79C-4C23-9067-C4DAE91B56F0}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+		.gitignore = .gitignore
+		common.props = common.props
+		global.json = global.json
+		LICENSE = LICENSE
+		README.md = README.md
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4B041B91-5790-4571-8C58-C63FFE4BC9F8}.Debug|x64.ActiveCfg = Debug|x64
+		{4B041B91-5790-4571-8C58-C63FFE4BC9F8}.Debug|x64.Build.0 = Debug|x64
+		{4B041B91-5790-4571-8C58-C63FFE4BC9F8}.Release|x64.ActiveCfg = Release|x64
+		{4B041B91-5790-4571-8C58-C63FFE4BC9F8}.Release|x64.Build.0 = Release|x64
+		{38240783-9AD2-4A01-84C1-1A3E5F05720F}.Debug|x64.ActiveCfg = Debug|x64
+		{38240783-9AD2-4A01-84C1-1A3E5F05720F}.Debug|x64.Build.0 = Debug|x64
+		{38240783-9AD2-4A01-84C1-1A3E5F05720F}.Release|x64.ActiveCfg = Release|x64
+		{38240783-9AD2-4A01-84C1-1A3E5F05720F}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6EC9B043-ACA5-4BB9-96DB-493A2EF6E43F}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,94 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <Import Project="..\common.props" />
+
+    <PropertyGroup>
+        <OutputType>WinExe</OutputType>
+        <Configurations>Debug;Release</Configurations>
+        <UseWindowsForms>true</UseWindowsForms>
+        <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+        <ApplicationManifest>App.manifest</ApplicationManifest>
+        <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+        <AppendRuntimeIdentifierToOutputPath>false</AppendRuntimeIdentifierToOutputPath>
+        <ApplicationIcon>GGFox.ico</ApplicationIcon>
+        <IsPackable>false</IsPackable>
+        <NoWarn>VSTHRD100</NoWarn>
+        <EnableNETAnalyzers>false</EnableNETAnalyzers>
+        <AnalysisMode>Default</AnalysisMode>
+        <CodeAnalysisTreatWarningsAsErrors>true</CodeAnalysisTreatWarningsAsErrors>
+        <AssemblyName>GGFox_core</AssemblyName>
+        <Authors>狐狸崽</Authors>
+        <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+        <OutputPath>bin\x64\Debug\</OutputPath>
+        <DefineConstants>DEBUG;TRACE</DefineConstants>
+        <Optimize>true</Optimize>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+        <OutputPath>bin\x64\Release\</OutputPath>
+        <DebugType>none</DebugType>
+        <DebugSymbols>false</DebugSymbols>
+        <Optimize>true</Optimize>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="HMBSbige.SingleInstance" Version="5.0.7" />
+        <PackageReference Include="MaxMind.GeoIP2" Version="4.0.1" />
+        <PackageReference Include="Microsoft.Diagnostics.Tracing.TraceEvent" Version="2.0.72" GeneratePathProperty="true" />
+        <PackageReference Include="Microsoft.VisualStudio.Threading" Version="16.10.56" />
+        <PackageReference Include="Microsoft.Windows.CsWin32" Version="0.1.506-beta">
+          <PrivateAssets>all</PrivateAssets>
+          <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+        <PackageReference Include="Nullable.Extended.Analyzer" Version="1.10.4539">
+          <PrivateAssets>all</PrivateAssets>
+          <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+        <PackageReference Include="Serilog" Version="2.10.0" />
+        <PackageReference Include="Serilog.Extensions.Hosting" Version="4.1.2" />
+        <PackageReference Include="Serilog.Sinks.Async" Version="1.5.0" />
+        <PackageReference Include="Serilog.Sinks.File" Version="5.0.0" />
+        <PackageReference Include="Serilog.Sinks.Console" Version="4.0.0" />
+        <PackageReference Include="Stun.Net" Version="5.0.0" />
+        <PackageReference Include="System.Management" Version="5.0.0" />
+        <PackageReference Include="System.Reactive" Version="5.0.0" />
+        <PackageReference Include="System.Text.Json" Version="6.0.0-rc.1.21451.13" />
+        <PackageReference Include="TaskScheduler" Version="2.9.1" />
+        <PackageReference Include="Microsoft-WindowsAPICodePack-Shell" Version="1.1.4" />
+        <PackageReference Include="WindowsFirewallHelper" Version="2.1.4.81" />
+        <PackageReference Include="System.ServiceProcess.ServiceController" Version="5.0.0" />
+        <PackageReference Include="System.Text.Encoding.CodePages" Version="5.0.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <EmbeddedResource Update="Properties\Resources.resx">
+            <Generator>ResXFileCodeGenerator</Generator>
+            <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
+        <Compile Update="Properties\Resources.Designer.cs">
+            <DesignTime>True</DesignTime>
+            <AutoGen>True</AutoGen>
+            <DependentUpon>Resources.resx</DependentUpon>
+        </Compile>
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="NativeMethods.txt" />
+    </ItemGroup>
+
+    <Target Condition="'$(PublishSingleFile)' == 'true'" AfterTargets="_ComputeFilesToBundle" Name="RemoveDupeAssemblies">
+        <ItemGroup>
+            <_FilesToBundle Remove="$(PkgMicrosoft_Diagnostics_Tracing_TraceEvent)\build\native\x86\**" />
+            <!--      .NET 6 SDK fixes MSB4018 "Multiple entries with the same BundleRelativePath", 
+                      if still retain the following properties,
+                      you will encounter a "lib/netstandard2.0/Dial2Lib.dll not found" error
+            -->
+            <_FilesToBundle Remove="$(PkgMicrosoft_Diagnostics_Tracing_TraceEvent)\lib\netstandard1.6\Dia2Lib.dll" />
+            <_FilesToBundle Remove="$(PkgMicrosoft_Diagnostics_Tracing_TraceEvent)\lib\netstandard1.6\OSExtensions.dll" />
+            <_FilesToBundle Remove="$(PkgMicrosoft_Diagnostics_Tracing_TraceEvent)\lib\netstandard1.6\TraceReloggerLib.dll" />
+        </ItemGroup>
+    </Target>
+</Project>
