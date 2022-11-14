@@ -1,0 +1,247 @@
+[2022-10-31 17:37:43][Information] OS: Microsoft Windows NT 10.0.19044.0
+[2022-10-31 17:37:43][Information] SHA256: 2ff8e63ec44274a6563dd54b09a9430632d6dd7e79ff4b988f229e28c824fa06
+[2022-10-31 17:37:43][Information] Status:等待命令中
+[2022-10-31 17:37:43][Information] ok1
+[2022-10-31 17:37:43][Information] Status:正在启动中
+[2022-10-31 17:37:43][Information] Start MainController: Socks5 [0]game
+[2022-10-31 17:37:43][Information] Status:正在启动 Redirector
+[2022-10-31 17:37:43][Information] Built-in  netfilter2 driver version: 1.6.1.7
+[2022-10-31 17:37:43][Information] Installed netfilter2 driver version: 1.6.3.0
+[2022-10-31 17:37:43][Debug] Third-party Drivers:
+ahs_protector [ahs_protector]()
+	\??\C:\WINDOWS\system32\drivers\ahs_protect.sys
+AMD GPIO Client Driver [AMD GPIO Client Driver](Copyright © 2014-2020 Advanced Micro Devices, Inc)
+	C:\WINDOWS\system32\drivers\amdgpio2.sys
+AMD GPIO Client Driver [AMD GPIO Client Driver]((C)2012-2016 Advanced Micro Devices, INC.)
+	C:\WINDOWS\system32\drivers\amdgpio3.sys
+AMD PSP Service [AMD PSP Service](Copyright (c) 2013 - 2020 Advanced Micro Devices, Inc.)
+	C:\WINDOWS\system32\drivers\amdpsp.sys
+cbfs5 [cbfs5]()
+	\??\C:\WINDOWS\system32\drivers\cbfs5.sys
+CimFS [CimFS]()
+	C:\WINDOWS\system32\drivers\CimFS.sys
+VMware hcmon [VMware hcmon](Copyright © 1998-2021 VMware, Inc.)
+	C:\WINDOWS\system32\DRIVERS\hcmon.sys
+hotfixplatform [hotfixplatform]()
+	\??\C:\WINDOWS\system32\drivers\hotfixplatform.sys
+Huorong Internet Security Devmon Kext [Huorong Internet Security Devmon Kext](Beijing Huorong Network Technology Co., Ltd.)
+	C:\WINDOWS\system32\DRIVERS\hrdevmon_win10.sys
+Huorong Network Security Firewall Core Kext (WFP) [Huorong Network Security Firewall Core Kext (WFP)](Beijing Huorong Network Technology Co., Ltd.)
+	C:\WINDOWS\system32\DRIVERS\hrwfpdrv_win10.sys
+IndexProtect [IndexProtect]()
+	C:\WINDOWS\system32\DRIVERS\IndexProtect.sys
+LdVBoxDrv [LdVBoxDrv]()
+	\??\C:\Program Files\ldplayerbox\LdVBoxDrv.sys
+VirtualBox NDIS6 Bridged Networking Service(LdVBoxNetLwf) [VirtualBox NDIS6 Bridged Networking Service(LdVBoxNetLwf)](Copyright (C) 2009-2019 Oracle Corporation)
+	C:\WINDOWS\system32\DRIVERS\LdVBoxNetLwf.sys
+LgdCatcher [LgdCatcher]()
+	C:\WINDOWS\system32\drivers\LgdCatcher.sys
+LgdCatcherTdi [LgdCatcherTdi]()
+	C:\WINDOWS\system32\drivers\LgdCatcherTdi.sys
+LnvHelp [LnvHelp]()
+	C:\WINDOWS\system32\DRIVERS\LnvHelp.sys
+lnvscenter [lnvscenter](Beijing Huorong Network Technology Co., Ltd.)
+	C:\WINDOWS\system32\DRIVERS\lnvscenter.sys
+lrtp [lrtp](LENOVO Corporation. All rights reserved.)
+	C:\WINDOWS\system32\DRIVERS\lrtp.sys
+netfilter2 [netfilter2](Copyright © NetFilterSDK.com)
+	C:\WINDOWS\system32\drivers\netfilter2.sys
+netrtp [netrtp](Copyright (C) 2019)
+	C:\WINDOWS\system32\DRIVERS\netrtp.sys
+nfwfp [nfwfp](Copyright ? nfwfp.com)
+	C:\WINDOWS\system32\drivers\nfwfp.sys
+Npcap Packet Driver (NPCAP) [Npcap Packet Driver (NPCAP)](Copyright (c) 2017, Insecure.Com LLC.  All rights reserved.)
+	C:\WINDOWS\system32\DRIVERS\npcap.sys
+Oculus Virtual Audio Device [Oculus Virtual Audio Device](Copyright (c) Facebook Technologies, LLC and its affiliates. All rights reserved.2019)
+	C:\WINDOWS\system32\drivers\oculusvad.sys
+Oculus Virtual Gamepad Emulation Service [Oculus Virtual Gamepad Emulation Service](Copyright (C) Oculus VR, LLC. 2017)
+	C:\WINDOWS\system32\drivers\Oculus_ViGEmBus.sys
+Huorong Network Security Core Kext [Huorong Network Security Core Kext](Beijing Huorong Network Technology Co., Ltd.)
+	C:\WINDOWS\system32\DRIVERS\sysdiag_win10.sys
+VB-Audio Virtual Cable (WDM) [VB-Audio Virtual Cable (WDM)](Copyright (C)Vincent Burel.2010-2012)
+	C:\WINDOWS\system32\drivers\vbaudio_cable64_win7.sys
+VirtualBox NDIS 6.0 Miniport Service [VirtualBox NDIS 6.0 Miniport Service](Copyright (C) 2009-2022 Oracle Corporation)
+	C:\WINDOWS\system32\DRIVERS\VBoxNetAdp6.sys
+VirtualBox NDIS6 Bridged Networking Service [VirtualBox NDIS6 Bridged Networking Service](Copyright (C) 2009-2022 Oracle Corporation)
+	C:\WINDOWS\system32\DRIVERS\VBoxNetLwf.sys
+VirtualBox Service [VirtualBox Service](Copyright (C) 2009-2022 Oracle Corporation)
+	C:\WINDOWS\system32\DRIVERS\VBoxSup.sys
+VirtualBox USB Monitor Service [VirtualBox USB Monitor Service](Copyright (C) 2009-2022 Oracle Corporation)
+	C:\WINDOWS\system32\DRIVERS\VBoxUSBMon.sys
+Virtual Desktop Audio [Virtual Desktop Audio](© Virtual Desktop, Inc. 2022)
+	C:\WINDOWS\system32\drivers\vdvad.sys
+Virtual Desktop Gamepad Emulation Service [Virtual Desktop Gamepad Emulation Service](Copyright (C) Virtual Desktop, Inc. 2014-2018)
+	C:\WINDOWS\system32\drivers\vdvge.sys
+Nefarius Virtual Gamepad Emulation Service [Nefarius Virtual Gamepad Emulation Service]((C) 2016-2020 Nefarius Software Solutions e.U.)
+	C:\WINDOWS\system32\drivers\ViGEmBus.sys
+VMware VMCI Bus Driver [VMware VMCI Bus Driver](Copyright © 1998-2019 VMware, Inc.)
+	C:\WINDOWS\system32\drivers\vmci.sys
+VMware Virtual Ethernet Adapter Driver [VMware Virtual Ethernet Adapter Driver](Copyright © 1998-2021 VMware, Inc.)
+	C:\WINDOWS\system32\DRIVERS\vmnetadapter.sys
+VMware Bridge Protocol [VMware Bridge Protocol](Copyright © 1998-2021 VMware, Inc.)
+	C:\WINDOWS\system32\DRIVERS\vmnetbridge.sys
+VMware Virtual Ethernet Userif for VMnet [VMware Virtual Ethernet Userif for VMnet](Copyright © 1998-2021 VMware, Inc.)
+	C:\WINDOWS\system32\DRIVERS\vmnetuserif.sys
+VMware vmx86 [VMware vmx86](Copyright © 1998-2021 VMware, Inc.)
+	C:\WINDOWS\system32\DRIVERS\vmx86.sys
+vSockets Virtual Machine Communication Interface Sockets driver [vSockets Virtual Machine Communication Interface Sockets driver](Copyright © 1998-2020 VMware, Inc.)
+	C:\WINDOWS\system32\DRIVERS\vsock.sys
+wintun [wintun](Copyright © 2018-2021 WireGuard LLC. All Rights Reserved.)
+	C:\WINDOWS\system32\DRIVERS\wintun.sys
+WinRing0_1_2_0 [WinRing0_1_2_0]()
+	\??\C:\Program Files (x86)\Lenovo\PCManager\5.0.30.7052\plugins\COOLit64.sys
+EasyAntiCheatSys [EasyAntiCheatSys]()
+	\??\C:\Program Files (x86)\EasyAntiCheat\EasyAntiCheat.sys
+[2022-10-31 17:37:43][Information] Status:已启动
+[2022-10-31 17:37:43][Information] Net traffic processes: (13328)SpeedFoxCore
+[2022-10-31 17:37:44][Information] 流量:0 B速度:0 B
+[2022-10-31 17:37:45][Information] 流量:0 B速度:0 B
+[2022-10-31 17:37:46][Debug] Running Processes: 
+C:\Program Files (x86)\ahsProtector\ahs_service.exe
+C:\Program Files (x86)\BestTrace\17monipdb.exe
+C:\Program Files (x86)\Common Files\Java\Java Update\jusched.exe
+C:\Program Files (x86)\Common Files\Microsoft Shared\Phone Tools\CoreCon\11.0\bin\IpOverUsbSvc.exe
+C:\Program Files (x86)\Common Files\Steam\steamservice.exe
+C:\Program Files (x86)\Common Files\VMware\USB\vmware-usbarbitrator64.exe
+C:\Program Files (x86)\EasyAntiCheat\EasyAntiCheat.exe
+C:\Program Files (x86)\Huorong\Sysdiag\bin\HipsDaemon.exe
+C:\Program Files (x86)\Huorong\Sysdiag\bin\HipsTray.exe
+C:\Program Files (x86)\Huorong\Sysdiag\bin\PopBlock.exe
+C:\Program Files (x86)\Huorong\Sysdiag\bin\usysdiag.exe
+C:\Program Files (x86)\KBCloudPrint\CloudPrintAgent.exe
+C:\Program Files (x86)\Lenovo\LenovoInternetSoftwareFramework\LenovoInternetSoftwareFramework.exe
+C:\Program Files (x86)\Lenovo\LenovoInternetSoftwareFramework\LISFService.exe
+C:\Program Files (x86)\Lenovo\Lsf\Lsf.exe
+C:\Program Files (x86)\Lenovo\PCManager\5.0.30.7052\crashpad_handler.exe
+C:\Program Files (x86)\Lenovo\PCManager\5.0.30.7052\LenovoPcManagerService.exe
+C:\Program Files (x86)\Lenovo\PCManager\5.0.30.7052\LenovoTray.exe
+C:\Program Files (x86)\Lenovo\PCManager\5.0.30.7052\Security\service\LAVService.exe
+C:\Program Files (x86)\Lenovo\PCManager\5.0.30.7052\Security\service\usysdiag.exe
+C:\Program Files (x86)\Microsoft GameInput\x64\gameinputsvc.exe
+C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe
+C:\Program Files (x86)\Microsoft\EdgeUpdate\MicrosoftEdgeUpdate.exe
+C:\Program Files (x86)\NVIDIA Corporation\NvNode\NVIDIA Web Helper.exe
+C:\Program Files (x86)\Origin\Origin.exe
+C:\Program Files (x86)\Origin\OriginWebHelperService.exe
+C:\Program Files (x86)\Origin\QtWebEngineProcess.exe
+C:\Program Files (x86)\senseshield\ss\service\sssync.exe
+C:\Program Files (x86)\Steam\bin\cef\cef.win7x64\steamwebhelper.exe
+C:\Program Files (x86)\Steam\GameOverlayUI.exe
+C:\Program Files (x86)\Steam\steam.exe
+C:\Program Files (x86)\ToDesk\ToDesk_Service.exe
+C:\Program Files (x86)\ToDesk\ToDesk.exe
+C:\Program Files (x86)\VMware\VMware Workstation\vmware-authd.exe
+C:\Program Files\Docker\Docker\com.docker.service
+C:\Program Files\NVIDIA Corporation\NvContainer\nvcontainer.exe
+C:\Program Files\NVIDIA Corporation\NVIDIA GeForce Experience\NVIDIA Share.exe
+C:\Program Files\NVIDIA Corporation\ShadowPlay\nvsphelper64.exe
+C:\Program Files\Oculus\Support\oculus-runtime\OVRRedir.exe
+C:\Program Files\Oculus\Support\oculus-runtime\OVRServer_x64.exe
+C:\Program Files\Oculus\Support\oculus-runtime\OVRServiceLauncher.exe
+C:\Program Files\Parsec\pservice.exe
+D:\极狐加速器\2.0\!打包版本\基础包\极狐游戏加速器.exe
+D:\极狐加速器\2.0\!打包版本\基础包\bin\InternetBridge.exe
+D:\极狐加速器\2.0\!打包版本\基础包\BrowserSubprocess.exe
+D:\极狐加速器\2.0\!打包版本\基础包\SpeedFoxCore.exe
+D:\leidian\LDPlayer4\ldnews.exe
+F:\e\e.exe
+[2022-10-31 17:37:46][Information] 流量:0 B速度:0 B
+[2022-10-31 17:37:47][Information] 流量:1 KiB速度:0 B
+[2022-10-31 17:37:48][Information] 流量:1 KiB速度:0 B
+[2022-10-31 17:37:49][Information] 流量:1 KiB速度:0 B
+[2022-10-31 17:37:50][Information] 流量:1 KiB速度:0 B
+[2022-10-31 17:37:51][Information] 流量:1 KiB速度:0 B
+[2022-10-31 17:37:52][Information] 流量:1 KiB速度:0 B
+[2022-10-31 17:37:53][Information] 流量:1 KiB速度:0 B
+[2022-10-31 17:37:54][Information] 流量:1 KiB速度:0 B
+[2022-10-31 17:37:55][Information] 流量:1 KiB速度:0 B
+[2022-10-31 17:37:56][Information] 流量:1 KiB速度:0 B
+[2022-10-31 17:37:57][Information] 流量:1 KiB速度:0 B
+[2022-10-31 17:37:58][Information] 流量:1.22 KiB速度:0 B
+[2022-10-31 17:37:59][Information] 流量:10.76 KiB速度:9.53 KiB
+[2022-10-31 17:38:00][Information] 流量:29.05 KiB速度:18.29 KiB
+[2022-10-31 17:38:01][Information] 流量:31.25 KiB速度:2.2 KiB
+[2022-10-31 17:38:02][Information] 流量:362.07 KiB速度:330.82 KiB
+[2022-10-31 17:38:03][Information] 流量:384.05 KiB速度:21.98 KiB
+[2022-10-31 17:38:04][Information] 流量:517.18 KiB速度:133.13 KiB
+[2022-10-31 17:38:05][Information] 流量:526.63 KiB速度:9.45 KiB
+[2022-10-31 17:38:06][Information] 流量:532.47 KiB速度:5.84 KiB
+[2022-10-31 17:38:07][Information] 流量:544.6 KiB速度:12.13 KiB
+[2022-10-31 17:38:08][Information] 流量:568.88 KiB速度:24.28 KiB
+[2022-10-31 17:38:09][Information] 流量:585.15 KiB速度:16.27 KiB
+[2022-10-31 17:38:10][Information] 流量:598.72 KiB速度:13.57 KiB
+[2022-10-31 17:38:12][Information] 流量:606.13 KiB速度:7.41 KiB
+[2022-10-31 17:38:13][Information] 流量:616.54 KiB速度:10.41 KiB
+[2022-10-31 17:38:14][Information] 流量:635.02 KiB速度:18.48 KiB
+[2022-10-31 17:38:15][Information] 流量:636.68 KiB速度:1.67 KiB
+[2022-10-31 17:38:16][Information] 流量:655.1 KiB速度:18.42 KiB
+[2022-10-31 17:38:17][Information] 流量:666.53 KiB速度:11.42 KiB
+[2022-10-31 17:38:18][Information] 流量:680.77 KiB速度:14.24 KiB
+[2022-10-31 17:38:19][Information] 流量:684.74 KiB速度:3.97 KiB
+[2022-10-31 17:38:20][Information] 流量:691.09 KiB速度:6.35 KiB
+[2022-10-31 17:38:21][Information] 流量:694.08 KiB速度:2.99 KiB
+[2022-10-31 17:38:22][Information] 流量:701.3 KiB速度:7.22 KiB
+[2022-10-31 17:38:23][Information] 流量:704.48 KiB速度:3.18 KiB
+[2022-10-31 17:38:24][Information] 流量:709.27 KiB速度:4.8 KiB
+[2022-10-31 17:38:25][Information] 流量:712.81 KiB速度:3.53 KiB
+[2022-10-31 17:38:26][Information] 流量:715.45 KiB速度:2.65 KiB
+[2022-10-31 17:38:27][Information] 流量:720.33 KiB速度:4.88 KiB
+[2022-10-31 17:38:28][Information] 流量:731.5 KiB速度:11.17 KiB
+[2022-10-31 17:38:29][Information] 流量:736.47 KiB速度:4.97 KiB
+[2022-10-31 17:38:30][Information] 流量:746.15 KiB速度:9.68 KiB
+[2022-10-31 17:38:31][Information] 流量:763.4 KiB速度:17.26 KiB
+[2022-10-31 17:38:32][Information] 流量:806.33 KiB速度:42.93 KiB
+[2022-10-31 17:38:33][Information] 流量:1.02 MiB速度:235.05 KiB
+[2022-10-31 17:38:34][Information] 流量:1.06 MiB速度:46.95 KiB
+[2022-10-31 17:38:35][Information] 流量:1.07 MiB速度:9.35 KiB
+[2022-10-31 17:38:36][Information] 流量:1.08 MiB速度:6.47 KiB
+[2022-10-31 17:38:37][Information] 流量:1.08 MiB速度:4.55 KiB
+[2022-10-31 17:38:38][Information] 流量:1.08 MiB速度:2.2 KiB
+[2022-10-31 17:38:39][Information] 流量:1.09 MiB速度:3.9 KiB
+[2022-10-31 17:38:40][Information] 流量:1.09 MiB速度:2.34 KiB
+[2022-10-31 17:38:41][Information] 流量:1.09 MiB速度:2.53 KiB
+[2022-10-31 17:38:42][Information] 流量:1.1 MiB速度:2.48 KiB
+[2022-10-31 17:38:43][Information] 流量:1.1 MiB速度:2.83 KiB
+[2022-10-31 17:38:44][Information] 流量:1.1 MiB速度:3.53 KiB
+[2022-10-31 17:38:45][Information] 流量:1.1 MiB速度:1.59 KiB
+[2022-10-31 17:38:46][Information] 流量:1.11 MiB速度:2.23 KiB
+[2022-10-31 17:38:47][Information] 流量:1.11 MiB速度:2.7 KiB
+[2022-10-31 17:38:48][Information] 流量:1.11 MiB速度:3.45 KiB
+[2022-10-31 17:38:49][Information] 流量:1.11 MiB速度:1.74 KiB
+[2022-10-31 17:38:50][Information] 流量:1.12 MiB速度:2.54 KiB
+[2022-10-31 17:38:51][Information] 流量:1.12 MiB速度:2.41 KiB
+[2022-10-31 17:38:52][Information] 流量:1.12 MiB速度:2.3 KiB
+[2022-10-31 17:38:53][Information] 流量:1.12 MiB速度:3.65 KiB
+[2022-10-31 17:38:54][Information] 流量:1.13 MiB速度:2.25 KiB
+[2022-10-31 17:38:55][Information] 流量:1.13 MiB速度:2.17 KiB
+[2022-10-31 17:38:56][Information] 流量:1.13 MiB速度:2.19 KiB
+[2022-10-31 17:38:57][Information] 流量:1.13 MiB速度:3.13 KiB
+[2022-10-31 17:38:58][Information] 流量:1.14 MiB速度:4.7 KiB
+[2022-10-31 17:38:59][Information] 流量:1.14 MiB速度:0 B
+[2022-10-31 17:39:00][Information] 流量:1.14 MiB速度:2.27 KiB
+[2022-10-31 17:39:01][Information] 流量:1.14 MiB速度:2.2 KiB
+[2022-10-31 17:39:02][Information] 流量:1.15 MiB速度:2.44 KiB
+[2022-10-31 17:39:03][Information] 流量:1.15 MiB速度:3.76 KiB
+[2022-10-31 17:39:04][Information] 流量:1.15 MiB速度:1.85 KiB
+[2022-10-31 17:39:05][Information] 流量:1.15 MiB速度:1.79 KiB
+[2022-10-31 17:39:06][Information] 流量:1.16 MiB速度:2.25 KiB
+[2022-10-31 17:39:07][Information] 流量:1.16 MiB速度:2.58 KiB
+[2022-10-31 17:39:08][Information] 流量:1.16 MiB速度:1.78 KiB
+[2022-10-31 17:39:09][Information] 流量:1.16 MiB速度:4.71 KiB
+[2022-10-31 17:39:10][Information] 流量:1.17 MiB速度:2.79 KiB
+[2022-10-31 17:39:11][Information] 流量:1.17 MiB速度:2.23 KiB
+[2022-10-31 17:39:12][Information] 流量:1.17 MiB速度:2.45 KiB
+[2022-10-31 17:39:13][Information] 流量:1.18 MiB速度:4.56 KiB
+[2022-10-31 17:39:14][Information] 流量:1.18 MiB速度:1.24 KiB
+[2022-10-31 17:39:15][Information] 流量:1.18 MiB速度:2.6 KiB
+[2022-10-31 17:39:16][Information] 流量:1.18 MiB速度:2.83 KiB
+[2022-10-31 17:39:17][Information] 流量:1.18 MiB速度:2.19 KiB
+[2022-10-31 17:39:18][Information] 流量:1.19 MiB速度:2.34 KiB
+[2022-10-31 17:39:19][Information] 流量:1.19 MiB速度:2.79 KiB
+[2022-10-31 17:39:20][Information] 流量:1.19 MiB速度:3.48 KiB
+[2022-10-31 17:39:21][Information] 流量:1.19 MiB速度:0 B
+[2022-10-31 17:39:22][Information] 流量:1.2 MiB速度:2.54 KiB
+[2022-10-31 17:39:23][Information] 流量:1.2 MiB速度:2.36 KiB
+[2022-10-31 17:39:24][Information] 流量:1.2 MiB速度:2.5 KiB
+[2022-10-31 17:39:25][Information] 流量:1.2 MiB速度:2.2 KiB
+[2022-10-31 17:39:26][Information] 流量:1.2 MiB速度:2.32 KiB

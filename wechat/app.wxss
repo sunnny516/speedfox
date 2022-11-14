@@ -1,0 +1,105 @@
+.Pop-ups {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+    opacity: 0;
+    outline: 0;
+    text-align: center;
+    transform: scale(1.185);
+    backface-visibility: hidden;
+    perspective: 2000rpx;
+    background: rgba(0,0,0,0.6);
+    transition: all 0.3s ease-in-out 0s;
+    pointer-events: none;
+}
+
+.Pop-ups::before {
+    content: "\200B";
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+}
+
+.show {
+    opacity: 1;
+    transition-duration: 0.3s;
+    transform: scale(1);
+    overflow-x: hidden;
+    overflow-y: auto;
+    pointer-events: auto;
+}
+
+.Pop-ups .dialog {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: auto;
+    margin-right: auto;
+    width: 680rpx;
+    max-width: 100%;
+    background: #f8f8f8;
+    border-radius: 10rpx;
+    overflow: hidden;
+}
+
+.Pop-ups .bar {
+    display: flex;
+    position: relative;
+    align-items: center;
+    min-height: 100rpx;
+    justify-content: space-between;
+    background-color: #fff;
+    color: #666;
+}
+
+.Pop-ups .content {
+    position: absolute;
+    text-align: center;
+    width: calc(100% - 340rpx);
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    margin: auto;
+    height: 60rpx;
+    font-size: 32rpx;
+    line-height: 60rpx;
+    cursor: none;
+    pointer-events: none;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.Pop-ups .action {
+    display: flex;
+    align-items: center;
+    height: 100rpx;
+    justify-content: center;
+    max-width: 100%;
+    flex: 1;
+}
+
+.progress {
+    overflow: hidden;
+    height: 28rpx;
+    background-color: #ebeef5;
+    display: inline-flex;
+    align-items: center;
+    width: 100%;
+}
+
+.progress view {
+    width: 0;
+    height: 100%;
+    align-items: center;
+    display: flex;
+    justify-items: flex-end;
+    justify-content: space-around;
+    font-size: 20rpx;
+    color: #fff;
+    transition: width 0.6s ease;
+}

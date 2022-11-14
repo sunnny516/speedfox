@@ -1,0 +1,30 @@
+{
+  "pages": [
+    "pages/index/index"
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar_off": {
+    "custom": false,
+    "color": "#dbdbdb",
+    "selectedColor": "#7A67EE",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "领取",
+        "iconPath": "images/fk.png",
+        "selectedIconPath": "images/fks.png"
+      }
+    ]
+  },
+  "navigateToMiniProgramAppIdList": [
+    "wxc95a195038c8573d",
+    "wx3172e60c8c16e41d",
+    "wxb5eaea6cacc7e49e"
+  ],
+  "sitemapLocation": "sitemap.json"
+}

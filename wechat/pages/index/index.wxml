@@ -1,0 +1,52 @@
+<view class="after-navber">
+    <view class="container">
+        <!-- <view class="itemTitle">{{data.xcx_name}}</view> -->
+        <image src="https://weapp01.dongmanshe.net/wx-api-01/we/logo.png" style="width: 640rpx; height: 90rpx; display: block; box-sizing: border-box"></image >
+
+        <form bindsubmit="receive">
+            <picker bindchange="classChange" class="seachInput" range="{{classArray}}" rangeKey="name">
+                <view class="picker">
+                     选择: {{classArray[classIndex].name}}
+                </view>
+            </picker>
+            <view class="itemButtom">
+                <button class="action seachButtom_old" style="color:#39b54a;" formType="submit">{{data.adVideoId=="free"?'免 费 领 取 时 长':'观 看 视 频 领 取 时 长'}}</button>
+
+
+
+
+            </view>
+        </form>
+
+
+
+
+        <view class="gzh">
+            <official-account></official-account>
+        </view>
+        <text class="info" wx:if="{{classArray[classIndex].introduce!=null&&classArray[classIndex].introduce!=''}}">
+ {{classArray[classIndex].introduce}}
+    </text>
+        <view class="tool-info" style="width: 698rpx; height: 260rpx; display: block; box-sizing: border-box">
+            <text class="title">{{data.contact}}</text>
+            <image class="adImage" src="{{data.ruleImg}}" style="width: 698rpx; height: 208rpx; display: inline-block; box-sizing: border-box"></image>
+        </view>
+    </view>
+</view>
+<view class="Pop-ups {{shareShow?'show':''}} ">
+    <view class="dialog">
+        <view class="bar">
+            <view class="content">分享提示</view>
+        </view>
+        <view style="padding:50rpx;">
+              {{data.shareTip!=''?data.shareTip:'还需分享一次好友或群即可领取卡密了'}}
+            </view>
+        <view class="bar">
+            <button bindtap="popupShow" class="action" style="color:#39b54a;">我不</button>
+            <button bindtap="ok" class="action" openType="share" style="color:#0081ff;">分享</button>
+        </view>
+    </view>
+</view>
+<view class="containers">
+  <ad unit-id="adunit-68d7f0d8ab335a29">AD1</ad>
+</view>

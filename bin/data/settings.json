@@ -1,0 +1,75 @@
+{
+  "Redirector": {
+    "FilterProtocol": "Both",
+    "DNSHijack": false,
+    "DNSHijackHost": "1.1.1.1:53",
+    "ICMPDelay": 0,
+    "FilterICMP": false
+  },
+  "Server": [
+    {
+      "Password": "",
+      "Username": "",
+      "Type": "Socks5",
+      "Group": "NONE",
+      "Hostname": "127.0.0.1",
+      "Port": 16780,
+      "Rate": 1,
+      "Remark": ""
+    }
+  ],
+  "AioDNS": {
+    "ChinaDNS": "tcp://223.5.5.5:53",
+    "OtherDNS": "tcp://1.1.1.1:53",
+    "ListenPort": 253
+  },
+  "CheckBetaUpdate": false,
+  "CheckUpdateWhenOpened": true,
+  "DetectionTick": 10,
+  "ExitWhenClosed": false,
+  "HTTPLocalPort": 2802,
+  "Language": "System",
+  "LocalAddress": "127.0.0.1",
+  "MinimizeWhenStarted": false,
+  "ModeComboBoxSelectedIndex": 90,
+  "ProfileCount": 4,
+  "Profiles": [],
+  "ProfileTableColumnCount": 5,
+  "RequestTimeout": 10000,
+  "RunAtStartup": false,
+  "ServerComboBoxSelectedIndex": 0,
+  "ServerTCPing": true,
+  "Socks5LocalPort": 2801,
+  "StartedPingInterval": -1,
+  "StartWhenOpened": false,
+  "StopWhenExited": false,
+  "STUN_Server": "stun.syncthing.net",
+  "STUN_Server_Port": 3478,
+  "Subscription": [],
+  "TUNTAP": {
+    "Address": "10.0.236.10",
+    "HijackDNS": "tcp://1.1.1.1:53",
+    "Gateway": "10.0.236.1",
+    "Netmask": "255.255.255.0",
+    "ProxyDNS": false,
+    "UseCustomDNS": false,
+    "BypassIPs": []
+  },
+  "UpdateServersWhenOpened": false,
+  "V2RayConfig": {
+    "AllowInsecure": false,
+    "KcpConfig": {
+      "congestion": false,
+      "downlinkCapacity": 100,
+      "mtu": 1350,
+      "readBufferSize": 2,
+      "tti": 50,
+      "uplinkCapacity": 12,
+      "writeBufferSize": 2
+    },
+    "UseMux": false,
+    "V2rayNShareLink": true,
+    "XrayCone": true
+  },
+  "NoSupportDialog": true
+}
