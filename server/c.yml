@@ -1,0 +1,11 @@
+api:
+  addr: :8787
+  pathPrefix: /QK3DvZCWyLdOskc9Gjhp5FlrftKWAYXX
+
+
+
+hosts:
+- name: hosts-0
+  mappings:
+  - ip: 127.0.0.1
+    hostname: example.org

@@ -1,0 +1,343 @@
+{
+  "log": null,
+  "routing": {
+    "rules": [
+      {
+        "inboundTag": [
+          "api"
+        ],
+        "outboundTag": "api",
+        "type": "field"
+      },
+      {
+        "ip": [
+          "geoip:private"
+        ],
+        "outboundTag": "blocked",
+        "type": "field"
+      },
+      {
+        "outboundTag": "blocked",
+        "protocol": [
+          "bittorrent"
+        ],
+        "type": "field"
+      }
+    ]
+  },
+  "dns": null,
+  "inbounds": [
+    {
+      "listen": "127.0.0.1",
+      "port": 62789,
+      "protocol": "dokodemo-door",
+      "settings": {
+        "address": "127.0.0.1"
+      },
+      "streamSettings": null,
+      "tag": "api",
+      "sniffing": null
+    },
+    {
+      "listen": null,
+      "port": 20000,
+      "protocol": "vless",
+      "settings": {
+        "clients": [
+          {
+            "id": "fa92d5aa-2866-405e-b192-83a35cd0d422",
+            "flow": "xtls-rprx-direct"
+          }
+        ],
+        "decryption": "none",
+        "fallbacks": []
+      },
+      "streamSettings": {
+        "network": "quic",
+        "security": "none",
+        "quicSettings": {
+          "security": "none",
+          "key": "",
+          "header": {
+            "type": "none"
+          }
+        }
+      },
+      "tag": "inbound-20000",
+      "sniffing": {
+        "enabled": true,
+        "destOverride": [
+          "http",
+          "tls"
+        ]
+      }
+    },
+    {
+      "listen": null,
+      "port": 20001,
+      "protocol": "vless",
+      "settings": {
+        "clients": [
+          {
+            "id": "fa92d5aa-2866-405e-b192-83a35cd0d422",
+            "flow": "xtls-rprx-direct"
+          }
+        ],
+        "decryption": "none",
+        "fallbacks": []
+      },
+      "streamSettings": {
+        "network": "quic",
+        "security": "none",
+        "quicSettings": {
+          "security": "none",
+          "key": "",
+          "header": {
+            "type": "none"
+          }
+        }
+      },
+      "tag": "inbound-20001",
+      "sniffing": {
+        "enabled": true,
+        "destOverride": [
+          "http",
+          "tls"
+        ]
+      }
+    },
+    {
+      "listen": null,
+      "port": 20002,
+      "protocol": "vless",
+      "settings": {
+        "clients": [
+          {
+            "id": "fa92d5aa-2866-405e-b192-83a35cd0d422",
+            "flow": "xtls-rprx-direct"
+          }
+        ],
+        "decryption": "none",
+        "fallbacks": []
+      },
+      "streamSettings": {
+        "network": "quic",
+        "security": "none",
+        "quicSettings": {
+          "security": "none",
+          "key": "",
+          "header": {
+            "type": "none"
+          }
+        }
+      },
+      "tag": "inbound-20002",
+      "sniffing": {
+        "enabled": true,
+        "destOverride": [
+          "http",
+          "tls"
+        ]
+      }
+    },
+    {
+      "listen": null,
+      "port": 20003,
+      "protocol": "vless",
+      "settings": {
+        "clients": [
+          {
+            "id": "fa92d5aa-2866-405e-b192-83a35cd0d422",
+            "flow": "xtls-rprx-direct"
+          }
+        ],
+        "decryption": "none",
+        "fallbacks": []
+      },
+      "streamSettings": {
+        "network": "quic",
+        "security": "none",
+        "quicSettings": {
+          "security": "none",
+          "key": "",
+          "header": {
+            "type": "none"
+          }
+        }
+      },
+      "tag": "inbound-20003",
+      "sniffing": {
+        "enabled": true,
+        "destOverride": [
+          "http",
+          "tls"
+        ]
+      }
+    },
+    {
+      "listen": null,
+      "port": 20004,
+      "protocol": "vless",
+      "settings": {
+        "clients": [
+          {
+            "id": "fa92d5aa-2866-405e-b192-83a35cd0d422",
+            "flow": "xtls-rprx-direct"
+          }
+        ],
+        "decryption": "none",
+        "fallbacks": []
+      },
+      "streamSettings": {
+        "network": "quic",
+        "security": "none",
+        "quicSettings": {
+          "security": "none",
+          "key": "",
+          "header": {
+            "type": "none"
+          }
+        }
+      },
+      "tag": "inbound-20004",
+      "sniffing": {
+        "enabled": true,
+        "destOverride": [
+          "http",
+          "tls"
+        ]
+      }
+    },
+    {
+      "listen": null,
+      "port": 20005,
+      "protocol": "vless",
+      "settings": {
+        "clients": [
+          {
+            "id": "fa92d5aa-2866-405e-b192-83a35cd0d422",
+            "flow": "xtls-rprx-direct"
+          }
+        ],
+        "decryption": "none",
+        "fallbacks": []
+      },
+      "streamSettings": {
+        "network": "quic",
+        "security": "none",
+        "quicSettings": {
+          "security": "none",
+          "key": "",
+          "header": {
+            "type": "none"
+          }
+        }
+      },
+      "tag": "inbound-20005",
+      "sniffing": {
+        "enabled": true,
+        "destOverride": [
+          "http",
+          "tls"
+        ]
+      }
+    },
+    {
+      "listen": null,
+      "port": 20006,
+      "protocol": "vless",
+      "settings": {
+        "clients": [
+          {
+            "id": "fa92d5aa-2866-405e-b192-83a35cd0d422",
+            "flow": "xtls-rprx-direct"
+          }
+        ],
+        "decryption": "none",
+        "fallbacks": []
+      },
+      "streamSettings": {
+        "network": "quic",
+        "security": "none",
+        "quicSettings": {
+          "security": "none",
+          "key": "",
+          "header": {
+            "type": "none"
+          }
+        }
+      },
+      "tag": "inbound-20006",
+      "sniffing": {
+        "enabled": true,
+        "destOverride": [
+          "http",
+          "tls"
+        ]
+      }
+    },
+    {
+      "listen": null,
+      "port": 20007,
+      "protocol": "vless",
+      "settings": {
+        "clients": [
+          {
+            "id": "fa92d5aa-2866-405e-b192-83a35cd0d422",
+            "flow": "xtls-rprx-direct"
+          }
+        ],
+        "decryption": "none",
+        "fallbacks": []
+      },
+      "streamSettings": {
+        "network": "quic",
+        "security": "none",
+        "quicSettings": {
+          "security": "none",
+          "key": "",
+          "header": {
+            "type": "none"
+          }
+        }
+      },
+      "tag": "inbound-20007",
+      "sniffing": {
+        "enabled": true,
+        "destOverride": [
+          "http",
+          "tls"
+        ]
+      }
+    }
+  ],
+  "outbounds": [
+    {
+      "protocol": "freedom",
+      "settings": {}
+    },
+    {
+      "protocol": "blackhole",
+      "settings": {},
+      "tag": "blocked"
+    }
+  ],
+  "transport": null,
+  "policy": {
+    "system": {
+      "statsInboundDownlink": true,
+      "statsInboundUplink": true
+    }
+  },
+  "api": {
+    "services": [
+      "HandlerService",
+      "LoggerService",
+      "StatsService"
+    ],
+    "tag": "api"
+  },
+  "stats": {},
+  "reverse": null,
+  "fakeDns": null
+}

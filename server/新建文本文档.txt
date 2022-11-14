@@ -1,0 +1,13 @@
+limiters:
+- name: xiansu
+  limits:
+  - '$ 512KB'
+  - '$$ 512KB'
+  - '0.0.0.0/0  512KB 512KB'
+
+climiters:
+- name: xianlianjie
+  limits:
+  - '$ 512'
+  - '$$ 512'
+  - '0.0.0.0/0  512'
