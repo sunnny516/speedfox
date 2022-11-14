@@ -58,7 +58,7 @@
         <PackageReference Include="System.Text.Json" Version="6.0.0-rc.1.21451.13" />
         <PackageReference Include="TaskScheduler" Version="2.9.1" />
         <PackageReference Include="Microsoft-WindowsAPICodePack-Shell" Version="1.1.4" />
-        <PackageReference Include="WindowsFirewallHelper" Version="2.1.4.81" />
+        <PackageReference Include="WindowsFirewallHelper" Version="2.2.0.86" />
         <PackageReference Include="System.ServiceProcess.ServiceController" Version="5.0.0" />
         <PackageReference Include="System.Text.Encoding.CodePages" Version="5.0.0" />
     </ItemGroup>
