@@ -2,14 +2,7 @@
 
 <div align="center">
 
-# Netch
-A simple proxy client
 
-[![](https://img.shields.io/badge/telegram-group-green?style=flat-square)](https://t.me/netch_group)
-[![](https://img.shields.io/badge/telegram-channel-blue?style=flat-square)](https://t.me/netch_channel)
-[![](https://img.shields.io/github/downloads/netchx/netch/total.svg?style=flat-square)](https://github.com/netchx/netch/releases)
-[![](https://img.shields.io/github/v/release/netchx/netch?style=flat-square)](https://github.com/netchx/netch/releases)
-</div>
 
 ## Features
 Some features may not be implemented in version 1
@@ -34,15 +27,6 @@ Some features may not be implemented in version 1
 - UDP NAT FullCone (May limited by your server)
 - .NET 5.0 x64
 
-## Sponsor
-<a href="https://www.jetbrains.com/?from=Netch"><img src="https://cdn.jsdelivr.net/gh/netchx/netch/jetbrains.svg" alt="JetBrains" width="200"/></a>
-
-- [NeroCloud](https://nerocloud.io)
-
-## Donate
-- XMR *48ju3ELNZEa6wwPBMexCJ9G218BGY2XwhH6B6bmkFuJ3QgM4hPw2Pra35jPtuBZSc7SLNWeBpiWJZWjQeMAiLnTx2tH2Efx*
-- ETH *0x23dac0a93bcd71fec7a95833ad030338f167f185*
-
 ## Credit
 - [WinTUN](https://www.wintun.net)
 - [aioCloud](https://github.com/aiocloud)
@@ -53,3 +37,4 @@ Some features may not be implemented in version 1
 - [Trojan](https://github.com/trojan-gfw/trojan)
 - [V2Ray](https://github.com/v2fly/v2ray-core)
 - [XRay](https://github.com/xtls/xray-core)
+- [netch](https://github.com/netchx/netch)
