@@ -1,0 +1,178 @@
+[2022-12-20 19:08:02][Information] OS: Microsoft Windows NT 10.0.19044.0
+[2022-12-20 19:08:02][Information] SHA256: f36547fed880728c88e921fd3523b82ac2ba318ec79ba3bbc596ad773f4e6b39
+[2022-12-20 19:08:02][Information] System Language: zh-CN
+[2022-12-20 19:08:02][Information] [启动状态]等待命令中
+[2022-12-20 19:08:02][Information] [启动模式]加速模式
+[2022-12-20 19:08:02][Information] [启动状态]正在启动中
+[2022-12-20 19:08:02][Information] Start MainController: Socks5 [0]使命召唤16：现代战争重启
+[2022-12-20 19:08:02][Information] [启动状态]正在启动 Redirector
+[2022-12-20 19:08:02][Information] Built-in  netfilter2 driver version: 1.6.1.7
+[2022-12-20 19:08:02][Information] Installed netfilter2 driver version: 6
+[2022-12-20 19:08:02][Information] Update netfilter2 driver
+[2022-12-20 19:08:02][Information] Uninstall netfilter2
+[2022-12-20 19:08:02][Information] [驱动]卸载nf2驱动
+[2022-12-20 19:08:02][Debug] Third-party Drivers:
+ahs_protector [ahs_protector]()
+	\??\C:\WINDOWS\system32\drivers\ahs_protect.sys
+AMD GPIO Client Driver [AMD GPIO Client Driver](Copyright © 2014-2020 Advanced Micro Devices, Inc)
+	C:\WINDOWS\system32\drivers\amdgpio2.sys
+AMD GPIO Client Driver [AMD GPIO Client Driver]((C)2012-2016 Advanced Micro Devices, INC.)
+	C:\WINDOWS\system32\drivers\amdgpio3.sys
+AMD PSP Service [AMD PSP Service](Copyright (c) 2013 - 2020 Advanced Micro Devices, Inc.)
+	C:\WINDOWS\system32\drivers\amdpsp.sys
+cbfs5 [cbfs5]()
+	\??\C:\WINDOWS\system32\drivers\cbfs5.sys
+CimFS [CimFS]()
+	C:\WINDOWS\system32\drivers\CimFS.sys
+VMware hcmon [VMware hcmon](Copyright © 1998-2021 VMware, Inc.)
+	C:\WINDOWS\system32\DRIVERS\hcmon.sys
+hotfixplatform [hotfixplatform]()
+	\??\C:\WINDOWS\system32\drivers\hotfixplatform.sys
+Huorong Internet Security Devmon Kext [Huorong Internet Security Devmon Kext](Beijing Huorong Network Technology Co., Ltd.)
+	C:\WINDOWS\system32\DRIVERS\hrdevmon_win10.sys
+Huorong Network Security Firewall Core Kext (WFP) [Huorong Network Security Firewall Core Kext (WFP)](Beijing Huorong Network Technology Co., Ltd.)
+	C:\WINDOWS\system32\DRIVERS\hrwfpdrv_win10.sys
+IndexProtect [IndexProtect]()
+	C:\WINDOWS\system32\DRIVERS\IndexProtect.sys
+LdVBoxDrv [LdVBoxDrv]()
+	\??\C:\Program Files\ldplayerbox\LdVBoxDrv.sys
+VirtualBox NDIS6 Bridged Networking Service(LdVBoxNetLwf) [VirtualBox NDIS6 Bridged Networking Service(LdVBoxNetLwf)](Copyright (C) 2009-2019 Oracle Corporation)
+	C:\WINDOWS\system32\DRIVERS\LdVBoxNetLwf.sys
+LgdCatcher [LgdCatcher]()
+	C:\WINDOWS\system32\drivers\LgdCatcher.sys
+LgdCatcherTdi [LgdCatcherTdi]()
+	C:\WINDOWS\system32\drivers\LgdCatcherTdi.sys
+LnvHelp [LnvHelp]()
+	C:\WINDOWS\system32\DRIVERS\LnvHelp.sys
+lnvscenter [lnvscenter](Beijing Huorong Network Technology Co., Ltd.)
+	C:\WINDOWS\system32\DRIVERS\lnvscenter.sys
+lrtp [lrtp](LENOVO Corporation. All rights reserved.)
+	C:\WINDOWS\system32\DRIVERS\lrtp.sys
+netrtp [netrtp](Copyright (C) 2019)
+	C:\WINDOWS\system32\DRIVERS\netrtp.sys
+networx [networx](Copyright © NetFilterSDK.com)
+	C:\WINDOWS\system32\drivers\networx.sys
+nfwfp [nfwfp](Copyright ? nfwfp.com)
+	C:\WINDOWS\system32\drivers\nfwfp.sys
+Npcap Packet Driver (NPCAP) [Npcap Packet Driver (NPCAP)](Copyright (c) 2017, Insecure.Com LLC.  All rights reserved.)
+	C:\WINDOWS\system32\DRIVERS\npcap.sys
+Oculus Virtual Audio Device [Oculus Virtual Audio Device](Copyright (c) Facebook Technologies, LLC and its affiliates. All rights reserved.2019)
+	C:\WINDOWS\system32\drivers\oculusvad.sys
+Oculus Virtual Gamepad Emulation Service [Oculus Virtual Gamepad Emulation Service](Copyright (C) Oculus VR, LLC. 2017)
+	C:\WINDOWS\system32\drivers\Oculus_ViGEmBus.sys
+Huorong Network Security Core Kext [Huorong Network Security Core Kext](Beijing Huorong Network Technology Co., Ltd.)
+	C:\WINDOWS\system32\DRIVERS\sysdiag_win10.sys
+VB-Audio Virtual Cable (WDM) [VB-Audio Virtual Cable (WDM)](Copyright (C)Vincent Burel.2010-2012)
+	C:\WINDOWS\system32\drivers\vbaudio_cable64_win7.sys
+VirtualBox NDIS 6.0 Miniport Service [VirtualBox NDIS 6.0 Miniport Service](Copyright (C) 2009-2022 Oracle Corporation)
+	C:\WINDOWS\system32\DRIVERS\VBoxNetAdp6.sys
+VirtualBox NDIS6 Bridged Networking Service [VirtualBox NDIS6 Bridged Networking Service](Copyright (C) 2009-2022 Oracle Corporation)
+	C:\WINDOWS\system32\DRIVERS\VBoxNetLwf.sys
+VirtualBox Service [VirtualBox Service](Copyright (C) 2009-2022 Oracle Corporation)
+	C:\WINDOWS\system32\DRIVERS\VBoxSup.sys
+VirtualBox USB Monitor Service [VirtualBox USB Monitor Service](Copyright (C) 2009-2022 Oracle Corporation)
+	C:\WINDOWS\system32\DRIVERS\VBoxUSBMon.sys
+Virtual Desktop Audio [Virtual Desktop Audio](© Virtual Desktop, Inc. 2022)
+	C:\WINDOWS\system32\drivers\vdvad.sys
+Virtual Desktop Gamepad Emulation Service [Virtual Desktop Gamepad Emulation Service](Copyright (C) Virtual Desktop, Inc. 2014-2018)
+	C:\WINDOWS\system32\drivers\vdvge.sys
+Nefarius Virtual Gamepad Emulation Service [Nefarius Virtual Gamepad Emulation Service]((C) 2016-2020 Nefarius Software Solutions e.U.)
+	C:\WINDOWS\system32\drivers\ViGEmBus.sys
+VMware VMCI Bus Driver [VMware VMCI Bus Driver](Copyright © 1998-2019 VMware, Inc.)
+	C:\WINDOWS\system32\drivers\vmci.sys
+VMware Virtual Ethernet Adapter Driver [VMware Virtual Ethernet Adapter Driver](Copyright © 1998-2021 VMware, Inc.)
+	C:\WINDOWS\system32\DRIVERS\vmnetadapter.sys
+VMware Bridge Protocol [VMware Bridge Protocol](Copyright © 1998-2021 VMware, Inc.)
+	C:\WINDOWS\system32\DRIVERS\vmnetbridge.sys
+VMware Virtual Ethernet Userif for VMnet [VMware Virtual Ethernet Userif for VMnet](Copyright © 1998-2021 VMware, Inc.)
+	C:\WINDOWS\system32\DRIVERS\vmnetuserif.sys
+VMware vmx86 [VMware vmx86](Copyright © 1998-2021 VMware, Inc.)
+	C:\WINDOWS\system32\DRIVERS\vmx86.sys
+vSockets Virtual Machine Communication Interface Sockets driver [vSockets Virtual Machine Communication Interface Sockets driver](Copyright © 1998-2020 VMware, Inc.)
+	C:\WINDOWS\system32\DRIVERS\vsock.sys
+WtfEngineDrv [WtfEngineDrv]()
+	\??\C:\WINDOWS\system32\Drivers\WtfEngineDrv.sys
+Xunlei WFP Driver [Xunlei WFP Driver]()
+	C:\WINDOWS\system32\drivers\xlwfp.sys
+WinRing0_1_2_0 [WinRing0_1_2_0]()
+	\??\C:\Program Files (x86)\Lenovo\PCManager\5.0.30.7052\plugins\COOLit64.sys
+netfilter2 [netfilter2](Copyright © NetFilterSDK.com)
+	C:\WINDOWS\system32\drivers\netfilter2.sys
+[2022-12-20 19:08:05][Debug] Running Processes: 
+C:\Program Files (x86)\ahsProtector\ahs_service.exe
+C:\Program Files (x86)\BestTrace\17monipdb.exe
+C:\Program Files (x86)\Common Files\Java\Java Update\jusched.exe
+C:\Program Files (x86)\Common Files\Macrovision Shared\FlexNet Publisher\FNPLicensingService.exe
+C:\Program Files (x86)\Common Files\Microsoft Shared\Phone Tools\CoreCon\11.0\bin\IpOverUsbSvc.exe
+C:\Program Files (x86)\Common Files\Steam\steamservice.exe
+C:\Program Files (x86)\Common Files\VMware\USB\vmware-usbarbitrator64.exe
+C:\Program Files (x86)\DingDing\main\current\DingTalk.exe
+C:\Program Files (x86)\Epic Games\Launcher\Engine\Binaries\Win64\EpicWebHelper.exe
+C:\Program Files (x86)\Epic Games\Launcher\Portal\Binaries\Win64\EpicGamesLauncher.exe
+C:\Program Files (x86)\Everything\Everything.exe
+C:\Program Files (x86)\Feige\Feige.exe
+C:\Program Files (x86)\Huorong\Sysdiag\bin\HipsDaemon.exe
+C:\Program Files (x86)\Huorong\Sysdiag\bin\PopBlock.exe
+C:\Program Files (x86)\Huorong\Sysdiag\bin\usysdiag.exe
+C:\Program Files (x86)\Lenovo\LenovoInternetSoftwareFramework\LenovoInternetSoftwareFramework.exe
+C:\Program Files (x86)\Lenovo\LenovoInternetSoftwareFramework\LISFService.exe
+C:\Program Files (x86)\Lenovo\Lsf\Lsf.exe
+C:\Program Files (x86)\Lenovo\PCManager\5.0.30.7052\crashpad_handler.exe
+C:\Program Files (x86)\Lenovo\PCManager\5.0.30.7052\LenovoPcManagerService.exe
+C:\Program Files (x86)\Lenovo\PCManager\5.0.30.7052\LenovoTray.exe
+C:\Program Files (x86)\Microsoft GameInput\x64\gameinputsvc.exe
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\devenv.exe
+c:\program files (x86)\microsoft visual studio\2019\community\common7\ide\extensions\microsoft\liveshare\Agent\vsls-agent.exe
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\PerfWatson2.exe
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\ServiceHub\controller\Microsoft.ServiceHub.Controller.exe
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\ServiceHub\Hosts\ServiceHub.Host.CLR.x64\ServiceHub.Host.CLR.x64.exe
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\ServiceHub\Hosts\ServiceHub.Host.CLR.x86\ServiceHub.Host.CLR.x86.exe
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\ServiceHub\Hosts\ServiceHub.Host.CLR.x86\ServiceHub.IdentityHost.exe
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\ServiceHub\Hosts\ServiceHub.Host.CLR.x86\ServiceHub.SettingsHost.exe
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\ServiceHub\Hosts\ServiceHub.Host.CLR.x86\ServiceHub.ThreadedWaitDialog.exe
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\ServiceHub\Hosts\ServiceHub.Host.CLR.x86\ServiceHub.VSDetouredHost.exe
+C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe
+C:\Program Files (x86)\NVIDIA Corporation\NvNode\NVIDIA Web Helper.exe
+C:\Program Files (x86)\senseshield\ss\service\sssync.exe
+C:\Program Files (x86)\Steam\bin\cef\cef.win7x64\steamwebhelper.exe
+C:\Program Files (x86)\Steam\steam.exe
+C:\Program Files (x86)\VMware\VMware Workstation\vmware-authd.exe
+C:\Program Files\Docker\Docker\com.docker.service
+C:\Program Files\Microsoft Xbox 360 Accessories\XBoxStat.exe
+C:\Program Files\NVIDIA Corporation\NvContainer\nvcontainer.exe
+C:\Program Files\NVIDIA Corporation\NVIDIA GeForce Experience\NVIDIA Share.exe
+C:\Program Files\NVIDIA Corporation\ShadowPlay\nvsphelper64.exe
+C:\Program Files\Oculus\Support\oculus-runtime\OVRRedir.exe
+C:\Program Files\Oculus\Support\oculus-runtime\OVRServer_x64.exe
+C:\Program Files\Oculus\Support\oculus-runtime\OVRServiceLauncher.exe
+C:\Program Files\Parsec\pservice.exe
+C:\Program Files\Softdeluxe\Free Download Manager\fdm.exe
+C:\Program Files\Softdeluxe\Free Download Manager\helperservice.exe
+C:\Program Files\Softdeluxe\Free Download Manager\wenativehost.exe
+D:\极狐加速器\源码\V2\!打包版本\极狐游戏加速器\bin\cores\v1\SFC.exe
+D:\极狐加速器\源码\V2\!打包版本\极狐游戏加速器\bin\net\SFNetConnect.exe
+D:\极狐加速器\源码\V2\!打包版本\极狐游戏加速器\bin\net\SFPing.exe
+D:\极狐加速器\源码\V2\!打包版本\极狐游戏加速器\CefSharp.BrowserSubprocess.exe
+D:\极狐加速器\源码\V2\!打包版本\极狐游戏加速器\SpeedFox.exe
+D:\leidian\LDPlayer4\ldnews.exe
+D:\qv2ray\qv2ray.exe
+F:\e\e.exe
+[2022-12-20 19:08:07][Information] Install netfilter2 driver
+[2022-12-20 19:08:07][Information] [驱动]安装nf驱动中
+[2022-12-20 19:08:07][Information] [启动状态]正在安装 netfilter2 驱动
+[2022-12-20 19:08:07][Information] Uninstall netfilter2
+[2022-12-20 19:08:07][Information] [驱动]卸载nf2驱动
+[2022-12-20 19:08:07][Information] [驱动]成功删除nf2驱动
+[2022-12-20 19:08:07][Information] Uninstall netfilter2
+[2022-12-20 19:08:07][Information] [驱动]卸载nf2驱动
+[2022-12-20 19:08:07][Information] Install netfilter2 driver finished
+[2022-12-20 19:08:07][Information] [驱动]成功安装nf2驱动
+[2022-12-20 19:08:07][Information] [启动状态]已启动
+[2022-12-20 19:08:07][Information] net类型 :-1
+[2022-12-20 19:08:07][Information] Net traffic processes: (39712)SFC
+[2022-12-20 19:08:08][Information] net类型 :1
+[2022-12-20 19:08:08][Information] net类型 :1
+[2022-12-20 19:08:08][Information] 使用数据 :0 B 速度:0 B
+[2022-12-20 19:08:09][Information] 使用数据 :0 B 速度:0 B
+[2022-12-20 19:08:10][Information] 使用数据 :0 B 速度:0 B
+[2022-12-20 19:08:11][Information] 使用数据 :0 B 速度:0 B

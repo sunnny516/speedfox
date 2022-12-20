@@ -1,0 +1,5 @@
+# 使命召唤16：现代战争重启, 0
+BlizzardBrowser\.exe
+bootstrapper\.exe
+Modern Warfare Launcher\.exe
+ModernWarfare\.exe
