@@ -1,0 +1,250 @@
+/** 滚动条样式  **/
+    /*滚动条的宽度*/
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+/*滚动条里面小方块*/
+::-webkit-scrollbar-thumb {
+    border-radius: 8px;
+    box-shadow: inset 0 0 5px #626262;
+    background: #626262;
+}
+
+/*滚动条里面轨道*/
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px  #212121;
+    border-radius: 0;
+    background:  #212121;
+}
+
+/** 滚动条  end **/
+body{ 
+    font-family:"Microsoft YaHei",微软雅黑,"MicrosoftJhengHei",华文细黑,STHeiti,MingLiu 
+}
+
+            .InsideBox {
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                width: 100%;
+                height: 100%;
+                display: flex;
+                position: absolute;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+                background: #141414;
+                border-radius: 12px;
+            }
+
+            .menu_Selected{
+                /*background: #212121;*/
+                background: #25363c;
+                margin: 12px;
+                border-radius: 6px;
+            }
+            .menu_Selected_N{
+                margin: 12px;
+                border-radius: 6px;
+            }
+            .mdui-list-item-icon-fox {
+                width: 24px;
+                min-width: 24px;
+                height: 24px;
+                margin-right: 16px;
+            }
+            .mdui-list-fox {
+                display: -webkit-box;
+                display: -ms-flexbox;
+                display: flex;
+                -webkit-box-align: center;
+                -ms-flex-align: center;
+                align-items: center;
+                -webkit-box-sizing: border-box;
+                box-sizing: border-box;
+                min-height: 48px;
+                padding: 0 16px;
+                text-decoration: none;
+                cursor: pointer;
+                -webkit-transition: background-color .3s cubic-bezier(.4,0,.2,1);
+                transition: background-color .3s cubic-bezier(.4,0,.2,1);
+            }
+            .mdui-drawer-fox {
+                position: fixed;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                z-index: 5000;
+                -webkit-box-sizing: border-box;
+                box-sizing: border-box;
+                width: calc(100% - 56px);
+                max-width: 280px;
+                margin: 0;
+                overflow-x: hidden;
+                overflow-y: auto;
+                white-space: nowrap;
+                will-change: transform;
+                -webkit-overflow-scrolling: touch;
+                width: 240px;
+            }
+            .game_img_a{
+                width: 100%;
+                border-radius: 8px;
+                background: #424242;
+            }
+            .game_box{
+                padding: 0px 24px;
+            }
+            
+            /*鼠标放置放大*/
+            .hvr-grow-shadow {
+              display: inline-block;
+              vertical-align: middle;
+              -webkit-transform: perspective(1px) translateZ(0);
+              transform: perspective(1px) translateZ(0);
+              box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+              -webkit-transition-duration: 0.3s;
+              transition-duration: 0.3s;
+              -webkit-transition-property: box-shadow, transform;
+              transition-property: box-shadow, transform;
+            }
+            .hvr-grow-shadow:hover, .hvr-grow-shadow:focus, .hvr-grow-shadow:active {
+              -webkit-transform: scale(1.1);
+              transform: scale(1.1);
+            }
+            
+            .gamename_text_back{
+                background-image: linear-gradient(0deg, #000000 0%, #ffffff00 100%);
+                position: relative;
+                top: -50px;
+                width: 100%;
+                height: 50px;
+                border-radius: 8px;
+                opacity: 0;
+            }
+            .gamename_text{
+                padding: 20px 8px;
+            }
+            
+            .game_box:hover .gamename_text_back{
+                opacity: 1;
+            }
+            
+            #quilt_off{
+                width: 100%;
+                height: 540px;
+            }
+        
+        
+game_config{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: #000000c7;
+    Z-INDEX: 9999;
+}
+
+#NotiflixNotifyWrap{
+    padding-top:64px;
+    Opacity:0.7;
+}
+
+
+@keyframes diqiudonghua{
+	from{
+	    right: 2500px;
+	    top: -250;
+	}
+	to{
+	    right: -500px;
+	}
+}
+
+      
+.game_config_box{
+    position: absolute;
+    width: 600px;
+    height: 480px;
+    background: red;
+    z-index: 9999;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+
+}
+
+.container {
+    box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2);   
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, .15);
+    
+    backdrop-filter: blur(5px);
+}
+
+.game_config_img{
+    width: 170px;
+    margin: 32px;
+    margin-top: 16px;
+    background: #0e0e0e;
+    border-radius: 6px;
+}
+
+.game_config_set{
+    position: absolute;
+    top: 117px;
+    left: 235px;
+    width: 350px;
+    height: 255px;
+    /*background: #607d8b;*/
+}
+
+.userbox{
+    background: #2c2c2c63;
+    margin: 12px;
+    border-radius: 8px;
+    padding: 32px;
+    padding-bottom: 8px;
+}
+
+.avater_box{
+    background: #424242;
+    border-radius: 100px;
+    width: 105px;
+    margin: 0px auto;
+    margin-top: 22px;
+
+}
+.user_data_box{
+    text-align: center
+}
+
+.setbox{
+    /*background: #ff0000;*/
+    /*margin: 12px;*/
+    float: left;
+    width: calc(100% - 255px);
+    margin-left: 0;
+}
+
+
+.scrollrun {
+    white-space: nowrap;
+}
+.scrollrun.scroll {
+    animation: 3s wordsLoop linear infinite;
+}
+@keyframes wordsLoop {
+    0% {
+        transform: translateX(0px);
+    }
+    25% {
+        transform: translateX(0px);
+    }
+    75% {
+        transform: translateX(calc(-100% + 2.35rem));
+    }
+    100% {
+        transform: translateX(calc(-100% + 2.35rem));
+    }

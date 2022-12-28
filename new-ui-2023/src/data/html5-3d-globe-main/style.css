@@ -1,0 +1,90 @@
+.close-button{
+    opacity:0;
+}
+
+html, body {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  margin: 0 0;
+  overflow: hidden;
+  font-family: 'Lato', sans-serif;
+  /*background-color: #000;*/
+  color: #fff;
+}
+
+.world {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  cursor: move;
+  cursor: -moz-grab;
+  cursor: -webkit-grab;
+  cursor: grab;
+}
+
+.world-bg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-position: 50% 50%;
+  background-size: cover;
+}
+
+.world-globe {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 0;
+  height: 0;
+}
+
+.world-globe-pole {
+  position: absolute;
+  width: 530px;
+  height: 530px;
+  left: -265px;
+  top: -265px;
+  border-radius: 50% 50%;
+  background-color: #fff;
+}
+
+.world-globe-doms-container {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 0;
+  height: 0;
+}
+
+.world-globe-halo {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 730px;
+  height: 715px;
+  margin-left: -368px;
+  margin-top: -350px;
+}
+
+.info {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  padding: 10px 10px;
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  font-size: 12px;
+}
+
+.info-desc {
+  color: #ddd;
+  font-size: 10px;
+}
+
+a {
+  color: #ff5f5f;
+}
