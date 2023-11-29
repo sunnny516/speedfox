@@ -5,16 +5,19 @@ using MuXunProxy.Controllers;
 // 有关程序集的一般信息由以下
 // 控制。更改这些特性值可修改
 // 与程序集关联的信息。
-[assembly: AssemblyTitle("MuXun.Proxy")]
+[assembly: AssemblyTitle("SpeedFox.Proxy")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("MuXun.Proxy")]
-[assembly: AssemblyCopyright("慕讯版权所有")]
+[assembly: AssemblyProduct("SpeedFox.Proxy")]
+[assembly: AssemblyCopyright("SpeedFox")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 [assembly: System.Runtime.Versioning.SupportedOSPlatformAttribute("Windows7.0")]
 [assembly: Fody.ConfigureAwait(false)]
+[assembly: log4net.Config.XmlConfigurator(ConfigFile = "log4net.config", ConfigFileExtension = "config", Watch = true)]
+
+
 
 // 将 ComVisible 设置为 false 会使此程序集中的类型
 //对 COM 组件不可见。如果需要从 COM 访问此程序集中的类型

@@ -106,10 +106,13 @@ namespace MuXunProxy.Controllers
         [DllImport("MuXunAcc.nfc.dll", CallingConvention = CallingConvention.Cdecl)]
         private static extern ulong aio_getDL();
 
-        [DllImport("MuXun.dll", CallingConvention = CallingConvention.Cdecl)]
+
+        // dllµ÷ÓÃ
+
+        [DllImport("netfilter\\nfapi.dll", CallingConvention = CallingConvention.Cdecl)]
         internal static extern NF_STATUS nf_registerDriver(string driverName);
 
-        [DllImport("MuXun.dll", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("netfilter\\nfapi.dll", CallingConvention = CallingConvention.Cdecl)]
         internal static extern NF_STATUS nf_unRegisterDriver(string driverName);
     }
 }

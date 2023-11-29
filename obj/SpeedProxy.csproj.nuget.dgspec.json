@@ -77,6 +77,10 @@
             "WindowsFirewallHelper": {
               "target": "Package",
               "version": "[2.2.0.86, )"
+            },
+            "log4net": {
+              "target": "Package",
+              "version": "[2.0.15, )"
             }
           },
           "imports": [

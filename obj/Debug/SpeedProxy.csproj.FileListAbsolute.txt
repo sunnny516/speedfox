@@ -33,3 +33,5 @@ D:\SpeedFoxCode\PCWindows\v3单核心\NETProxy\obj\Debug\SpeedProxy.csproj.Fody.
 D:\SpeedFoxCode\PCWindows\v3单核心\NETProxy\obj\Debug\SpeedProxy.csproj.CopyComplete
 D:\SpeedFoxCode\PCWindows\v3单核心\NETProxy\obj\Debug\SpeedProxy.dll
 D:\SpeedFoxCode\PCWindows\v3单核心\NETProxy\obj\Debug\SpeedProxy.genruntimeconfig.cache
+D:\SpeedFoxCode\PCWindows\v3单核心\NETProxy\bin\Debug\log4net.config
+D:\SpeedFoxCode\PCWindows\v3单核心\NETProxy\bin\Debug\log4net.dll

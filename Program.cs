@@ -13,6 +13,7 @@ using System.Security.Principal;
 using System.Runtime.InteropServices;
 using static MuXunProxy.Utils.Utils;
 using WindowsFirewallHelper;
+using log4net;
 #if RELEASE
 using Windows.Win32.UI.WindowsAndMessaging;
 #endif
@@ -51,12 +52,25 @@ public static class Program
             catch (Exception ex)
             {
                 // LogHelper.Error(ex.Message);
-                //    _ = MessageBox.Show("MuXunAccelerator", "程序无法获取Windows管理员身份 \n请手动使用Windows管理员身份运行!");
-                Console.WriteLine("程序无法获取Windows管理员身份 请手动使用Windows管理员身份运行!" , ex.Message);
+                //    _ = MessageBox.Show("fuck", "程序无法获取Windows管理员身份 \n请手动使用Windows管理员身份运行!");
+                Console.WriteLine("程序无法获取Windows管理员身份 请手动使用Windows管理员身份运行!" + ex.Message);
                 return;
             }
             //退出
             System.Environment.Exit(0);
+        }
+
+
+        // 杀死相关进程，预防上次没关干净
+        System.Diagnostics.Process[] process = System.Diagnostics.Process.GetProcessesByName("SpeedMains");
+        foreach (System.Diagnostics.Process p in process)
+        {
+            p.Kill();
+        }
+        System.Diagnostics.Process[] process2 = System.Diagnostics.Process.GetProcessesByName("SpeedFox.tun2socks");
+        foreach (System.Diagnostics.Process p in process2)
+        {
+            p.Kill();
         }
 
 
@@ -71,117 +85,149 @@ public static class Program
         Directory.SetCurrentDirectory(Application.StartupPath);
         var binPath = Path.Combine(pathtwo, "x64");
         Environment.SetEnvironmentVariable("PATH", $"{Environment.GetEnvironmentVariable("PATH")};{binPath}");
+        
+        
+        Console.WriteLine("读取启动配置");
+        // 读取配置,因为路由表和进程有的游戏很多,直接传进来太多了,直接顶了,如果没有直接报错就好了,反正是用户乱搞的
+        string SpeedProxy_config = File.ReadAllText("SpeedProxy.config.tmp");
+        Console.WriteLine("启动配置:" + SpeedProxy_config);
+
+
+        if (!string.IsNullOrEmpty(SpeedProxy_config))
+        {
+            // 用 @ 分割，组装成数组
+
+            // 数组定义
+            // 0:模式
+            // 1:进程或路由
+            // 2:dns
+            // 3:排除服务器IP (路由模式如果吧服务器代理上了会无限死循环,进程模式没有带上也行，不带的话也必须有这个数组)
+            // 
 
 
 
-        // 这里的的启动方式基本属于报废，因为从nodejs启动带参数会导致子进程无法启动，不知道为什么
-        //if (args.Length != 0)
-        //{
+            string[] array = SpeedProxy_config.Split(new char[] { '@' });
+            
+            // 进程模式 取数组0
+            if (array[0] is "0")
+            {
+                NFController nfcontroller = new NFController(array);
 
-        //    string text = NFController.Decrypt(args[0]);
-        //    if (!string.IsNullOrEmpty(text))
-        //    {
-        //        string[] array = text.Split(new char[] { '~' });
-        //        DateTime d = Convert.ToDateTime(array[0]);
-        //        if ((DateTime.Now - d).TotalSeconds > 5.0)
-        //        {
-        //            Console.WriteLine("参数无效!");
-        //        }
-        //        else
-        //        {
-        //            //NFController.CheckDrivers();
-        //            //PrivoxyController privoxyontroller = new PrivoxyController();
-        //            //privoxyontroller.Start();
-        //            if (array[6] is "ss" or "sk5")
-        //            {
-        //                NFController nfcontroller = new NFController(array);
-        //                nfcontroller.StartWai();
-        //                //nfcontroller.StartRust();
-        //                //nfcontroller.StartRusts();
-        //                //nfcontroller.StartWais();
-        //                nfcontroller.StartMains/*Jiu*/();
-        //                //nfcontroller.StartSSRE/*Jiu*/();
-        //                //nfcontroller.StartSyS();
-        //            }
-        //            else if (array[6] is "sk5exe")
-        //            {
-        //                NFController nfcontroller = new NFController(array);
-        //                nfcontroller.StartSk5();
-        //                //nfcontroller.StartSSRE();
-        //                nfcontroller.StartMains/*Jiu*/();
-        //            }
-        //            else if (array[6] is "ssdll")
-        //            {
-        //                NFController nfcontroller = new NFController(array);
-        //                nfcontroller.StartDLL();
-        //                //nfcontroller.StartSSRE();
-        //                nfcontroller.StartMains/*Jiu*/();
-        //            }
-        //            else if (array[6] is "ssr")
-        //            {
-        //                NFController nfcontroller = new NFController(array);
-        //                nfcontroller.StartWai();
-        //                //nfcontroller.StartSSRE();
-        //                nfcontroller.StartMains/*Jiu*/();
-        //            }
-        //            else if (array[6] == "1")
-        //            {
-        //                //TUNController TUNController = new TUNController(array);
-        //                //_ = TUNController.StartAsync();
-        //                TUNController TUNController = new TUNController(array);
-        //                NFController nfcontroller = new NFController(array);
-        //                nfcontroller.StartWai();
-        //                //nfcontroller.StartDLLSS();
-        //                _ = TUNController.StartAsync();
-        //                //nfcontroller.StartSyS();
-        //            }
-        //            else if (array[6] is "ssrtun")
-        //            {
-        //                TUNController TUNController = new TUNController(array);
-        //                NFController nfcontroller = new NFController(array);
-        //                nfcontroller.StartSk5();
-        //                //nfcontroller.StartDLL();
-        //                _ = TUNController.StartAsync();
-        //            }
-        //            else if (array[9] == "ss/tun")
-        //            {
-        //                TUNController TUNController = new TUNController(array);
-        //                NFController nfcontroller = new NFController(array);
-        //                nfcontroller.StartWai();
-        //                _ = TUNController.StartAsync();
-        //                nfcontroller.StartMains/*Jiu*/();
-        //                //nfcontroller.StartSSRE/*Jiu*/();
-        //                //nfcontroller.StartSyS();
-        //            }
-        //            //else if (array[9] == "ss/tun")
-        //            //{
-        //            //    TUNController TUNController = new TUNController(array);
-        //            //    NFController nfcontroller = new NFController(array);
-        //            //    _ = TUNController.Tun2Exe();
-        //            //    nfcontroller.Start();
-        //            //}
-        //            //else if (array[6] == "ssr/tun")
-        //            //{
-        //            //    TUNController TUNController = new TUNController(array);
-        //            //    NFController nfcontroller = new NFController(array);
-        //            //    //nfcontroller.StartSSR();
-        //            //    //nfcontroller.Start();
-        //            //    _ = TUNController.Tun2Exe();
-        //            //}
-        //            else
-        //            {
-        //                return;
-        //            }
-        //            Utils.Utils.ClearMemory();
-        //            Console.ReadKey();
-        //        }
+                // 安装修补 nf2 驱动
+                NFController.CheckDrivers();
 
-        //    }
-        //}
-        //else
-        //{
+                // 启动加速进程
+                nfcontroller.StartMains();
+                return;
+            }
 
-        //}
+            // 路由模式 取数组0
+            if (array[0] is "1")
+            {
+                TUNController TUNController = new TUNController(array);
+
+                // 安装修补 wintun.dll
+                TUNController.CheckDrivers();
+
+                // 启动路由加速
+                TUNController.StartAsync();
+
+                return;
+            }
+
+
+
+
+
+            // 下面的判断方式是陈年老屎，直接无视
+
+            //NFController.CheckDrivers();
+            //PrivoxyController privoxyontroller = new PrivoxyController();
+            //privoxyontroller.Start();
+            if (array[6] is "ss" or "sk5")
+            {
+                NFController nfcontroller = new NFController(array);
+                nfcontroller.StartWai();
+                //nfcontroller.StartRust();
+                //nfcontroller.StartRusts();
+                //nfcontroller.StartWais();
+                nfcontroller.StartMains/*Jiu*/();
+                //nfcontroller.StartSSRE/*Jiu*/();
+                //nfcontroller.StartSyS();
+            }
+            else if (array[6] is "sk5exe")
+            {
+                NFController nfcontroller = new NFController(array);
+                nfcontroller.StartSk5();
+                //nfcontroller.StartSSRE();
+                nfcontroller.StartMains/*Jiu*/();
+            }
+            else if (array[6] is "ssdll")
+            {
+                NFController nfcontroller = new NFController(array);
+                nfcontroller.StartDLL();
+                //nfcontroller.StartSSRE();
+                nfcontroller.StartMains/*Jiu*/();
+            }
+            else if (array[6] is "ssr")
+            {
+                NFController nfcontroller = new NFController(array);
+                nfcontroller.StartWai();
+                //nfcontroller.StartSSRE();
+                nfcontroller.StartMains/*Jiu*/();
+            }
+            else if (array[6] == "1")
+            {
+                //TUNController TUNController = new TUNController(array);
+                //_ = TUNController.StartAsync();
+                TUNController TUNController = new TUNController(array);
+                NFController nfcontroller = new NFController(array);
+                nfcontroller.StartWai();
+                //nfcontroller.StartDLLSS();
+                _ = TUNController.StartAsync();
+                //nfcontroller.StartSyS();
+            }
+            else if (array[6] is "ssrtun")
+            {
+                TUNController TUNController = new TUNController(array);
+                NFController nfcontroller = new NFController(array);
+                nfcontroller.StartSk5();
+                //nfcontroller.StartDLL();
+                _ = TUNController.StartAsync();
+            }
+            else if (array[9] == "ss/tun")
+            {
+                TUNController TUNController = new TUNController(array);
+                NFController nfcontroller = new NFController(array);
+                nfcontroller.StartWai();
+                _ = TUNController.StartAsync();
+                nfcontroller.StartMains/*Jiu*/();
+                //nfcontroller.StartSSRE/*Jiu*/();
+                //nfcontroller.StartSyS();
+            }
+            //else if (array[9] == "ss/tun")
+            //{
+            //    TUNController TUNController = new TUNController(array);
+            //    NFController nfcontroller = new NFController(array);
+            //    _ = TUNController.Tun2Exe();
+            //    nfcontroller.Start();
+            //}
+            //else if (array[6] == "ssr/tun")
+            //{
+            //    TUNController TUNController = new TUNController(array);
+            //    NFController nfcontroller = new NFController(array);
+            //    //nfcontroller.StartSSR();
+            //    //nfcontroller.Start();
+            //    _ = TUNController.Tun2Exe();
+            //}
+            else
+            {
+                return;
+            }
+            Utils.Utils.ClearMemory();
+            Console.ReadKey();
+
+        }
 
     }
     private static void ClearEnv()

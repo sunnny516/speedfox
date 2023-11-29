@@ -18,7 +18,7 @@ public static class RouteUtils
     {
         if (!TryParseIPNetwork(rule, out var network, out var cidr))
         {
-            Log.Warning("invalid rule {Rule}", rule);
+            Log.Warning("错误的路由表 {Rule}", rule);
             return false;
         }
 

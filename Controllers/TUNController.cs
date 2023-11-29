@@ -35,10 +35,11 @@ public class TUNController
 
     public async Task StartAsync()
     {
+        Console.WriteLine("排除的服务器IP" + number[3]);
         _tunConfig = TUNTAP;
 
 
-        _serverRemoteAddress = NFController.Decrypt(number[1]).ValueOrDefault() != null ? await DnsUtils.LookupAsync(NFController.Decrypt(number[1])!) : await DnsUtils.LookupAsync(NFController.Decrypt(number[1]));
+        _serverRemoteAddress = number[3].ValueOrDefault() != null ? await DnsUtils.LookupAsync(number[3]!) : await DnsUtils.LookupAsync(number[3]);
 
         if (_serverRemoteAddress != null && IPAddress.IsLoopback(_serverRemoteAddress))
         {
@@ -46,7 +47,8 @@ public class TUNController
         }
 
         _outbound = NetRoute.GetBestRouteTemplate();
-        CheckDriver();
+        
+        // CheckDriver();
 
         //if (number[9] == "ss" || number[9] == "ss/tun")
         //{
@@ -64,7 +66,7 @@ public class TUNController
             Receiveds = $"socks5://{"127.0.0.1"}:{"16877"}";
         //}
 
-        const string interfaceName = "MuXun";
+        const string interfaceName = "SpeedFox";
         //var arguments = new object?[]
         //{
         //    // -device tun://aioCloud -proxy socks5://127.0.0.1:7890
@@ -72,20 +74,23 @@ public class TUNController
         //    "-proxy", Receiveds,
         //    "-mtu", "1500"
         //};
+
         StringBuilder arguments = new($"-device tun://{interfaceName}");
         _ = arguments.Append($" -proxy {Receiveds}");
         _ = arguments.Append($" -mtu 1500");
 
    
         this.Instance = new Process();
-        this.Instance.StartInfo.FileName = $@"{Environment.CurrentDirectory}\" + (Environment.Is64BitOperatingSystem ? "x64" : "x86") + "\\MuXunAcc.tuntap.exe";
-        this.Instance.StartInfo.CreateNoWindow = true;
+        this.Instance.StartInfo.FileName = $@"{Environment.CurrentDirectory}\\SpeedFox.tun2socks.exe";
+        this.Instance.StartInfo.CreateNoWindow = false;// false
         this.Instance.StartInfo.UseShellExecute = false;
         this.Instance.EnableRaisingEvents = true;
         this.Instance.Exited += ProcessExited; // 注册进程退出事件处理程序
         this.Instance.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
 
         this.Instance.StartInfo.Arguments = arguments.ToString();
+
+        Console.WriteLine("arguments:" + arguments);
 
         this.Instance.Start();
 
@@ -102,35 +107,46 @@ public class TUNController
         }
 
         // Wait for adapter to be created
-        for (var i = 0; i < 20; i++)
+        Console.WriteLine("等待创建适配器");
+
+
+        for (var i = 128; i > 0; i--)
         {
-            await Task.Delay(300);
+            //await 
+            //Task.Delay(1000);
             try
             {
                 _tunNetworkInterface = NetworkInterfaceUtils.Get(ni => ni.Name.StartsWith(interfaceName));
+                Console.WriteLine("获取适配器成功！" + _tunNetworkInterface.GetIndex());
                 break;
             }
             catch
             {
-                // ignored
+                Console.WriteLine("获取适配器失败 机会" + i);
             }
         }
+
+        Console.WriteLine("获取适配器完成");
 
         if (_tunNetworkInterface == null)
             throw new MessageException("Create wintun adapter failed");
 
+
         var tunIndex = _tunNetworkInterface.GetIndex();
         _tun = NetRoute.TemplateBuilder(_tunConfig.Gateway, tunIndex);
+        
 
-
-        if (!await Task.Run(() => RouteHelper.CreateUnicastIP(AddressFamily.InterNetwork,
+        Console.WriteLine("配置本地路由");
+        if (!RouteHelper.CreateUnicastIP(AddressFamily.InterNetwork,
                 _tunConfig.Address,
                 (byte)Utils.Utils.SubnetToCidr(_tunConfig.Netmask),
-                (ulong)tunIndex)))
+                (ulong)tunIndex))
+
         {
-            Log.Error("Create unicast IP failed");
-            throw new MessageException("Create unicast IP failed");
+            Console.WriteLine("Create unicast IP failed");
         }
+
+        Console.WriteLine("适配器初始化完成,即将开始写入路由表");
 
         //// 定义输出文件路径
         //string outputPath = @"C:\Users\MuXun\Desktop\app.txt";
@@ -143,6 +159,11 @@ public class TUNController
         //}
 
 
+        // 日路由表
+        SetupRouteTableAsync(number[1]);
+
+
+        // 上古屎，勿动
         switch (number[9])
         {
             case "ss/tun":
@@ -175,71 +196,27 @@ public class TUNController
         }
 
     }
+
+
     private static void ProcessExited(object sender, EventArgs e)
     {
-        Process[] processee = Process.GetProcessesByName("MuXunHttp");
-        try
-        {
-            foreach (Process item in processee)
-            {
-                item.Kill();
-            }
-        }
-        catch
-        {
+        //Process[] processee = Process.GetProcessesByName("MuXunHttp");
+        //try
+        //{
+        //    foreach (Process item in processee)
+        //    {
+        //        item.Kill();
+        //    }
+        //}
+        //catch
+        //{
 
-        }
-        Process[] processs = Process.GetProcessesByName("MuXunProxy");
-        try
-        {
-            foreach (Process item in processs)
-            {
-                item.Kill();
-            }
-        }
-        catch
-        {
-
-        }
-        Process[] process = Process.GetProcessesByName("MuXunAcc.tuntap");
-        try
-        {
-            foreach (Process item in process)
-            {
-                item.Kill();
-            }
-        }
-        catch
-        {
-
-        }
-        Process[] processe = Process.GetProcessesByName("MXProxy");
-        try
-        {
-            foreach (Process item in processe)
-            {
-                item.Kill();
-            }
-        }
-        catch
-        {
-
-        }
-        Process[] proc = Process.GetProcessesByName("MxNetProxy");
-        try
-        {
-            foreach (Process item in proc)
-            {
-                item.Kill();
-            }
-        }
-        catch
-        {
-
-        }
+        //}
 
         System.Environment.Exit(0);
     }
+
+
 
     public async Task StartAsyncIn()
     {
@@ -355,17 +332,34 @@ public class TUNController
         }
     }
 
-    private void CheckDrivers()
+    internal static void CheckDrivers()
     {
         string binDriver = "wintun.dll";
         string sysDriver = $@"{Environment.SystemDirectory}\wintun.dll";
 
+
         var binHash = Utils.Utils.SHA256CheckSum(binDriver);
         var sysHash = Utils.Utils.SHA256CheckSum(sysDriver);
+
+
+        // 这b玩意好像有的版本号一样但是里面内容不一样，不能靠版本号识别，草了
+        string fileVersion = Utils.Utils.GetFileVersion(binDriver);
+        string fileVersion2 = Utils.Utils.GetFileVersion(sysDriver);
+
+        Console.WriteLine("检查 wintun.dll 客户端:" + fileVersion + "用户:" + fileVersion2);
+        Console.WriteLine("检查 wintun.dll 客户端:" + binHash + "用户:" + sysHash);
+
+
         //Log.Information("Built-in  wintun.dll Hash: {Hash}", binHash);
         //Log.Information("Installed wintun.dll Hash: {Hash}", sysHash);
-        if (binHash == sysHash)
-            return;
+        if (binHash + fileVersion == sysHash + fileVersion2)
+        {
+
+        }
+        else 
+        {
+            Console.WriteLine("wintun.dll 不一样或者没有 重新安装");
+        };
 
         try
         {
@@ -375,7 +369,7 @@ public class TUNController
         catch (Exception e)
         {
             //Log.Error(e, "Copy wintun.dll failed");
-            throw new MessageException($"Failed to copy wintun.dll to system directory: {e.Message}");
+            throw new MessageException($"wintun.dll拷贝失败: {e.Message}");
         }
     }
 
@@ -390,6 +384,7 @@ public class TUNController
         foreach (string text in list)
         {
             list2.Add(text);
+            Console.WriteLine("路由表:" + text);
         }
 
 
@@ -412,12 +407,13 @@ public class TUNController
 
     private async Task SetupRouteTableAsync(string mode)
     {
-
+        // 操作路由表，用，分割，组成数组
         List<string> list = mode.Split(new char[] { ',' }).ToList<string>();
         List<string> list2 = new List<string>();
         foreach (string text in list)
         {
             list2.Add(text);
+            Console.WriteLine("路由表:" + text);
         }
 
         if (_serverRemoteAddress != null)

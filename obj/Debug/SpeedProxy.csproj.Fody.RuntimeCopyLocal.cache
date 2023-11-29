@@ -1,3 +1,4 @@
+C:\Users\11546\.nuget\packages\log4net\2.0.15\lib\netstandard2.0\log4net.dll
 C:\Users\11546\.nuget\packages\microsoft.extensions.configuration.abstractions\7.0.0\lib\net6.0\Microsoft.Extensions.Configuration.Abstractions.dll
 C:\Users\11546\.nuget\packages\microsoft.extensions.dependencyinjection\7.0.0\lib\net6.0\Microsoft.Extensions.DependencyInjection.dll
 C:\Users\11546\.nuget\packages\microsoft.extensions.dependencyinjection.abstractions\7.0.0\lib\net6.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
@@ -15,10 +16,13 @@ C:\Users\11546\.nuget\packages\serilog.sinks.async\1.5.0\lib\netstandard2.0\Seri
 C:\Users\11546\.nuget\packages\serilog.sinks.console\4.1.1-dev-00910\lib\net5.0\Serilog.Sinks.Console.dll
 C:\Users\11546\.nuget\packages\serilog.sinks.file\5.0.1-dev-00947\lib\net5.0\Serilog.Sinks.File.dll
 C:\Users\11546\.nuget\packages\system.codedom\8.0.0-preview.4.23259.5\lib\net6.0\System.CodeDom.dll
+C:\Users\11546\.nuget\packages\system.configuration.configurationmanager\4.5.0\lib\netstandard2.0\System.Configuration.ConfigurationManager.dll
 C:\Users\11546\.nuget\packages\system.diagnostics.eventlog\5.0.0\lib\netstandard2.0\System.Diagnostics.EventLog.dll
 C:\Users\11546\.nuget\packages\system.management\8.0.0-preview.4.23259.5\lib\net6.0\System.Management.dll
 C:\Users\11546\.nuget\packages\system.runtime.compilerservices.unsafe\6.0.0\lib\net6.0\System.Runtime.CompilerServices.Unsafe.dll
 C:\Users\11546\.nuget\packages\system.security.accesscontrol\5.0.0\lib\netstandard2.0\System.Security.AccessControl.dll
+C:\Users\11546\.nuget\packages\system.security.cryptography.protecteddata\4.5.0\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\11546\.nuget\packages\system.security.permissions\4.5.0\lib\netstandard2.0\System.Security.Permissions.dll
 C:\Users\11546\.nuget\packages\system.security.principal.windows\5.0.0\lib\netstandard2.0\System.Security.Principal.Windows.dll
 C:\Users\11546\.nuget\packages\system.serviceprocess.servicecontroller\5.0.0\lib\netstandard2.0\System.ServiceProcess.ServiceController.dll
 C:\Users\11546\.nuget\packages\windowsfirewallhelper\2.2.0.86\lib\net5.0\WindowsFirewallHelper.dll

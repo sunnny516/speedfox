@@ -52,10 +52,14 @@ internal class NFController
     public static string JinChenMoShi6 { get; set; }
     private static readonly ServiceController NFService = new("netfilter2");
     //private static string BinDriver = "C:\\Program Files\\Zcy7\\accelerator\\wfp\\x32\\MuXunSpeed.sys";
-    private static string BinDriver = $@"{Environment.CurrentDirectory}\" + (Environment.Is64BitOperatingSystem ? "x64" : "x86") + "\\MuXunSpeed.sys";
+    //private static string BinDriver = $@"{Environment.CurrentDirectory}\" + (Environment.Is64BitOperatingSystem ? "x64" : "x86") + "\\MuXunSpeed.sys";
     //private const string Binnfapi = "C:\\Program Files\\MuXun\\accelerator\\wfp\\x64\\MuXun.dll";
     //private const string BinNFCApi = "C:\\Program Files\\Zcy7\\accelerator\\wfp\\x32\\MuXun.dll";
-    private static string BinNFCApi = "MuXun.dll";
+
+    private static string BinDriver = $@"{Environment.CurrentDirectory}\\netfilter\\netfilter2.sys";
+    private static string BinNFCApi = $@"{Environment.CurrentDirectory}\\netfilter\\nfapi.dll";
+
+
 
     private static readonly string SystemDriver = $"{Environment.SystemDirectory}\\drivers\\netfilter2.sys";
     private string[] string_0;
@@ -1072,12 +1076,30 @@ internal class NFController
     }
     public async Task<bool> StartMains()
     {
-        CheckDrivers();
+        // CheckDrivers(); 在外面检查过了，不用测了
         //for (; ; )
         //{
+
+        // 检查nf2驱动是否整好
+        var result = RedirectorIn.nf_registerDriver("netfilter2");
+        if (result == NF_STATUS.NF_STATUS_SUCCESS)
+        {
+            Console.WriteLine("netfilter2 驱动状态成功！");
+        }
+        else
+        {
+            Console.WriteLine($"netfilter2  驱动状态失败,卸载...");
+            UninstallDrivers();
+        }
+
+
+        // 启动外部模块,这个模块是从别人手里买的，直接启动调用就行
+        // string_0 是从上面带进来的数组 
+        Console.WriteLine("加速的进程:" + string_0[1]);
+
         this.Instance = new Process();
-        this.Instance.StartInfo.FileName = "MuXunHttp.exe";
-        this.Instance.StartInfo.CreateNoWindow = true;
+        this.Instance.StartInfo.FileName = "SpeedMains.exe";
+        this.Instance.StartInfo.CreateNoWindow = false;
         this.Instance.StartInfo.UseShellExecute = false;
         this.Instance.EnableRaisingEvents = true;
         this.Instance.Exited += ProcessExited; // 注册进程退出事件处理程序
@@ -1085,11 +1107,13 @@ internal class NFController
         string dns = "1.1.1.1";  // 获取的dns值
 
         //string arguments = $"-u 127.0.0.1:16877 -t {Decrypt(string_0[9])}:{Decrypt(string_0[2])} -user {Decrypt(string_0[3])} -pass {Decrypt(string_0[10])} -p \"{string_0[5]}\" -dns \"{dns}\"";
-        string arguments = $"-l 127.0.0.1:16877 -s {"127.0.0.1"}:{16877} -p \"{string_0[5]}\" -dns \"{dns}\"";
+        string arguments = $"-l 127.0.0.1:16877 -s {"127.0.0.1"}:{16877} -p \"{string_0[1]}\" -dns \"{dns}\"";
 
 
         this.Instance.StartInfo.Arguments = arguments;
         this.Instance.Start();
+
+        // Console.WriteLine("启动的变量:" + arguments);
 
         //if (this.Instance == null || this.Instance.HasExited)
         //{
@@ -1136,66 +1160,18 @@ internal class NFController
 
     private static void ProcessExited(object sender, EventArgs e)
     {
-        Process[] processee = Process.GetProcessesByName("MuXunHttp");
-        try
-        {
-            foreach (Process item in processee)
-            {
-                item.Kill();
-            }
-        }
-        catch
-        {
+        //Process[] processee = Process.GetProcessesByName("MuXunHttp");
+        //try
+        //{
+        //    foreach (Process item in processee)
+        //    {
+        //        item.Kill();
+        //    }
+        //}
+        //catch
+        //{
 
-        }
-        Process[] processs = Process.GetProcessesByName("MuXunProxy");
-        try
-        {
-            foreach (Process item in processs)
-            {
-                item.Kill();
-            }
-        }
-        catch
-        {
-
-        }
-        Process[] process = Process.GetProcessesByName("MuXunAcc.tuntap");
-        try
-        {
-            foreach (Process item in process)
-            {
-                item.Kill();
-            }
-        }
-        catch
-        {
-
-        }
-        Process[] processe = Process.GetProcessesByName("MXProxy");
-        try
-        {
-            foreach (Process item in processe)
-            {
-                item.Kill();
-            }
-        }
-        catch
-        {
-
-        }
-        Process[] proc = Process.GetProcessesByName("MxNetProxy");
-        try
-        {
-            foreach (Process item in proc)
-            {
-                item.Kill();
-            }
-        }
-        catch
-        {
-
-        }
+        //}
 
         System.Environment.Exit(0);
     }
@@ -1402,8 +1378,12 @@ internal class NFController
     {
         string fileVersion = Utils.Utils.GetFileVersion(BinDriver);
         string fileVersion2 = Utils.Utils.GetFileVersion(SystemDriver);
+
+        Console.WriteLine("检查 netfilter2 驱动 客户端:" + fileVersion + "用户:" + fileVersion2);
+
         if (!File.Exists(SystemDriver))
         {
+            Console.WriteLine("未找到 netfilter2 重新安装");
             InstallDrivers();
             return;
         }
@@ -1437,30 +1417,26 @@ internal class NFController
     /// <returns>驱动是否安装成功</returns>
     private static void InstallDrivers()
     {
-        if (!File.Exists(BinDriver))
-        {
-
-        }
-
+        Console.WriteLine("操作安装 netfilter2");
         try
         {
             File.Copy(BinDriver, SystemDriver);
         }
         catch (Exception ex)
         {
-            //   _ = new MessageWindow("Copy NF driver file failed\n" + ex.Message).ShowDialog();
+            // 文件拷贝失败报错
+            Console.WriteLine("Copy NF driver file failed\n" + ex.Message);
         }
 
+        // 启动nf2
         var result = RedirectorIn.nf_registerDriver("netfilter2");
         if (result == NF_STATUS.NF_STATUS_SUCCESS)
         {
-
+            Console.WriteLine("NF_STATUS" + result); // nf2启动成功
         }
         else
         {
-            //_ = new MessageWindow("加速失败,注册驱动程序失败,请联系管理员:QQ702533698!").ShowDialog();
-            //LogHelper.Error("加速失败,注册驱动程序失败,请联系管理员:QQ702533698!");
-            throw new Exception($"Register NF driver failed\n{result}");
+            Console.WriteLine($"Register NF driver failed\n{result}"); // nf2启动失败
         }
     }
     /// <summary>
