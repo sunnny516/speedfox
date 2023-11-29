@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "dOQvH4jzj1SXz2wjSStkRQK4vI9IeewHiGdvCKfK87Hl83WpzngcXukLb0BPjcRmQXac783xQYG87BT9LNZKew==",
+  "dgSpecHash": "4zXbffJCB+bURDVmp3Pj3sZVf65foz+Fxyqab2GC5Q3V1im8tbzXvC6yWZ0SLp0D1T7Y26aO7rH/MOKj4wFl3g==",
   "success": true,
-  "projectFilePath": "C:\\Users\\11546\\Desktop\\备份\\慕讯11月\\MuXunProxy\\MuXunProxy\\MuXunProxy.csproj",
+  "projectFilePath": "D:\\SpeedFoxCode\\PCWindows\\v3单核心\\NETProxy\\MuXunProxy.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\11546\\.nuget\\packages\\configureawait.fody\\3.3.2\\configureawait.fody.3.3.2.nupkg.sha512",
     "C:\\Users\\11546\\.nuget\\packages\\fody\\6.6.4\\fody.6.6.4.nupkg.sha512",

@@ -1472,11 +1472,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\11546\\Desktop\\备份\\慕讯11月\\MuXunProxy\\MuXunProxy\\MuXunProxy.csproj",
+      "projectUniqueName": "D:\\SpeedFoxCode\\PCWindows\\v3单核心\\NETProxy\\MuXunProxy.csproj",
       "projectName": "MuXunProxy",
-      "projectPath": "C:\\Users\\11546\\Desktop\\备份\\慕讯11月\\MuXunProxy\\MuXunProxy\\MuXunProxy.csproj",
+      "projectPath": "D:\\SpeedFoxCode\\PCWindows\\v3单核心\\NETProxy\\MuXunProxy.csproj",
       "packagesPath": "C:\\Users\\11546\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\11546\\Desktop\\备份\\慕讯11月\\MuXunProxy\\MuXunProxy\\obj\\",
+      "outputPath": "D:\\SpeedFoxCode\\PCWindows\\v3单核心\\NETProxy\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\11546\\AppData\\Roaming\\NuGet\\NuGet.Config",
