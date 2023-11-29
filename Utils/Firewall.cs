@@ -7,11 +7,12 @@ namespace MuXunProxy.Utils;
 
 public static class Firewall
 {
-    private const string RuleName = "MuXun.Proxy";
+    //  放行防火墙
+    private const string RuleName = "SpeedFox.Proxy";
     private static string ass = "1";
     private static string auu = "1";
     /// <summary>
-    /// 添加 `MuXun.Proxy` 程序及其子目录中的所有 `.exe` 文件到防火墙规则中
+    /// 添加 `SpeedFox.Proxy` 程序及其子目录中的所有 `.exe` 文件到防火墙规则中
     /// </summary>
     /// 
     public static void AddRule()

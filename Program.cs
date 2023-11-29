@@ -56,67 +56,7 @@ public static class Program
             //退出
             System.Environment.Exit(0);
         }
-        Process[] proce = Process.GetProcessesByName("MuXunHttp");
-        try
-        {
-            foreach (Process item in proce)
-            {
-                item.Kill();
-            }
-        }
-        catch
-        {
 
-        }
-        Process[] processs = Process.GetProcessesByName("MuXunProxy");
-        try
-        {
-            foreach (Process item in processs)
-            {
-                item.Kill();
-            }
-        }
-        catch
-        {
-
-        }
-
-        Process[] process = Process.GetProcessesByName("MuXunAcc.tuntap");
-        try
-        {
-            foreach (Process item in process)
-            {
-                item.Kill();
-            }
-        }
-        catch
-        {
-
-        }
-        Process[] processe = Process.GetProcessesByName("MXProxy");
-        try
-        {
-            foreach (Process item in processe)
-            {
-                item.Kill();
-            }
-        }
-        catch
-        {
-
-        }
-        Process[] processee = Process.GetProcessesByName("MxNetProxy");
-        try
-        {
-            foreach (Process item in processee)
-            {
-                item.Kill();
-            }
-        }
-        catch
-        {
-
-        }
 
         //Firewall.AddRule();
         Application.EnableVisualStyles();
@@ -130,187 +70,115 @@ public static class Program
         var binPath = Path.Combine(pathtwo, "x64");
         Environment.SetEnvironmentVariable("PATH", $"{Environment.GetEnvironmentVariable("PATH")};{binPath}");
 
-        var p = Process.GetProcessesByName("MuXunAccelerator")[0];
-        p.EnableRaisingEvents = true;
-        p.Exited += P_Exited;
-        // Console.ReadLine();
-      
-        void P_Exited(object? sender, EventArgs e)
-        {
-            Process[] processee = Process.GetProcessesByName("MuXunHttp");
-            try
-            {
-                foreach (Process item in processee)
-                {
-                    item.Kill();
-                }
-            }
-            catch
-            {
 
-            }
-            Process[] processs = Process.GetProcessesByName("MuXunProxy");
-            try
-            {
-                foreach (Process item in processs)
-                {
-                    item.Kill();
-                }
-            }
-            catch
-            {
+        // 这里的的启动方式基本属于报废，因为从nodejs启动带参数会导致子进程无法启动，不知道为什么
+        //if (args.Length != 0)
+        //{
 
-            }
-            Process[] process = Process.GetProcessesByName("MuXunAcc.tuntap");
-            try
-            {
-                foreach (Process item in process)
-                {
-                    item.Kill();
-                }
-            }
-            catch
-            {
+        //    string text = NFController.Decrypt(args[0]);
+        //    if (!string.IsNullOrEmpty(text))
+        //    {
+        //        string[] array = text.Split(new char[] { '~' });
+        //        DateTime d = Convert.ToDateTime(array[0]);
+        //        if ((DateTime.Now - d).TotalSeconds > 5.0)
+        //        {
+        //            Console.WriteLine("参数无效!");
+        //        }
+        //        else
+        //        {
+        //            //NFController.CheckDrivers();
+        //            //PrivoxyController privoxyontroller = new PrivoxyController();
+        //            //privoxyontroller.Start();
+        //            if (array[6] is "ss" or "sk5")
+        //            {
+        //                NFController nfcontroller = new NFController(array);
+        //                nfcontroller.StartWai();
+        //                //nfcontroller.StartRust();
+        //                //nfcontroller.StartRusts();
+        //                //nfcontroller.StartWais();
+        //                nfcontroller.StartMains/*Jiu*/();
+        //                //nfcontroller.StartSSRE/*Jiu*/();
+        //                //nfcontroller.StartSyS();
+        //            }
+        //            else if (array[6] is "sk5exe")
+        //            {
+        //                NFController nfcontroller = new NFController(array);
+        //                nfcontroller.StartSk5();
+        //                //nfcontroller.StartSSRE();
+        //                nfcontroller.StartMains/*Jiu*/();
+        //            }
+        //            else if (array[6] is "ssdll")
+        //            {
+        //                NFController nfcontroller = new NFController(array);
+        //                nfcontroller.StartDLL();
+        //                //nfcontroller.StartSSRE();
+        //                nfcontroller.StartMains/*Jiu*/();
+        //            }
+        //            else if (array[6] is "ssr")
+        //            {
+        //                NFController nfcontroller = new NFController(array);
+        //                nfcontroller.StartWai();
+        //                //nfcontroller.StartSSRE();
+        //                nfcontroller.StartMains/*Jiu*/();
+        //            }
+        //            else if (array[6] == "1")
+        //            {
+        //                //TUNController TUNController = new TUNController(array);
+        //                //_ = TUNController.StartAsync();
+        //                TUNController TUNController = new TUNController(array);
+        //                NFController nfcontroller = new NFController(array);
+        //                nfcontroller.StartWai();
+        //                //nfcontroller.StartDLLSS();
+        //                _ = TUNController.StartAsync();
+        //                //nfcontroller.StartSyS();
+        //            }
+        //            else if (array[6] is "ssrtun")
+        //            {
+        //                TUNController TUNController = new TUNController(array);
+        //                NFController nfcontroller = new NFController(array);
+        //                nfcontroller.StartSk5();
+        //                //nfcontroller.StartDLL();
+        //                _ = TUNController.StartAsync();
+        //            }
+        //            else if (array[9] == "ss/tun")
+        //            {
+        //                TUNController TUNController = new TUNController(array);
+        //                NFController nfcontroller = new NFController(array);
+        //                nfcontroller.StartWai();
+        //                _ = TUNController.StartAsync();
+        //                nfcontroller.StartMains/*Jiu*/();
+        //                //nfcontroller.StartSSRE/*Jiu*/();
+        //                //nfcontroller.StartSyS();
+        //            }
+        //            //else if (array[9] == "ss/tun")
+        //            //{
+        //            //    TUNController TUNController = new TUNController(array);
+        //            //    NFController nfcontroller = new NFController(array);
+        //            //    _ = TUNController.Tun2Exe();
+        //            //    nfcontroller.Start();
+        //            //}
+        //            //else if (array[6] == "ssr/tun")
+        //            //{
+        //            //    TUNController TUNController = new TUNController(array);
+        //            //    NFController nfcontroller = new NFController(array);
+        //            //    //nfcontroller.StartSSR();
+        //            //    //nfcontroller.Start();
+        //            //    _ = TUNController.Tun2Exe();
+        //            //}
+        //            else
+        //            {
+        //                return;
+        //            }
+        //            Utils.Utils.ClearMemory();
+        //            Console.ReadKey();
+        //        }
 
-            }
-            Process[] processe = Process.GetProcessesByName("MXProxy");
-            try
-            {
-                foreach (Process item in processe)
-                {
-                    item.Kill();
-                }
-            }
-            catch
-            {
+        //    }
+        //}
+        //else
+        //{
 
-            }
-            Process[] proc = Process.GetProcessesByName("MxNetProxy");
-            try
-            {
-                foreach (Process item in proc)
-                {
-                    item.Kill();
-                }
-            }
-            catch
-            {
-
-            }
-
-            System.Environment.Exit(0);
-            p.EnableRaisingEvents = true;
-            p.Exited += P_Exited;
-        }
-
-
-        if (args.Length != 0)
-        {
-
-            string text = NFController.Decrypt(args[0]);
-            if (!string.IsNullOrEmpty(text))
-            {
-                string[] array = text.Split(new char[] { '~' });
-                DateTime d = Convert.ToDateTime(array[0]);
-                if ((DateTime.Now - d).TotalSeconds > 5.0)
-                {
-                    Console.WriteLine("参数无效!");
-                }
-                else
-                {
-                    //NFController.CheckDrivers();
-                    //PrivoxyController privoxyontroller = new PrivoxyController();
-                    //privoxyontroller.Start();
-                    if (array[6] is "ss" or "sk5")
-                    {
-                        NFController nfcontroller = new NFController(array);
-                        nfcontroller.StartWai();
-                        //nfcontroller.StartRust();
-                        //nfcontroller.StartRusts();
-                        //nfcontroller.StartWais();
-                        nfcontroller.StartMains/*Jiu*/();
-                        //nfcontroller.StartSSRE/*Jiu*/();
-                        //nfcontroller.StartSyS();
-                    }
-                    else if (array[6] is "sk5exe")
-                    {
-                        NFController nfcontroller = new NFController(array);
-                        nfcontroller.StartSk5();
-                        //nfcontroller.StartSSRE();
-                        nfcontroller.StartMains/*Jiu*/();
-                    }
-                    else if (array[6] is "ssdll")
-                    {
-                        NFController nfcontroller = new NFController(array);
-                        nfcontroller.StartDLL();
-                        //nfcontroller.StartSSRE();
-                        nfcontroller.StartMains/*Jiu*/();
-                    }
-                    else if (array[6] is "ssr")
-                    {
-                        NFController nfcontroller = new NFController(array);
-                        nfcontroller.StartWai();
-                        //nfcontroller.StartSSRE();
-                        nfcontroller.StartMains/*Jiu*/();
-                    }
-                    else if (array[6] == "1")
-                    {
-                        //TUNController TUNController = new TUNController(array);
-                        //_ = TUNController.StartAsync();
-                        TUNController TUNController = new TUNController(array);
-                        NFController nfcontroller = new NFController(array);
-                        nfcontroller.StartWai();
-                        //nfcontroller.StartDLLSS();
-                        _ = TUNController.StartAsync();
-                        //nfcontroller.StartSyS();
-                    }
-                    else if (array[6] is "ssrtun")
-                    {
-                        TUNController TUNController = new TUNController(array);
-                        NFController nfcontroller = new NFController(array);
-                        nfcontroller.StartSk5();
-                        //nfcontroller.StartDLL();
-                        _ = TUNController.StartAsync();
-                    }
-                    else if (array[9] == "ss/tun")
-                    {
-                        TUNController TUNController = new TUNController(array);
-                        NFController nfcontroller = new NFController(array);
-                        nfcontroller.StartWai();
-                        _ = TUNController.StartAsync();
-                        nfcontroller.StartMains/*Jiu*/();
-                        //nfcontroller.StartSSRE/*Jiu*/();
-                        //nfcontroller.StartSyS();
-                    }
-                    //else if (array[9] == "ss/tun")
-                    //{
-                    //    TUNController TUNController = new TUNController(array);
-                    //    NFController nfcontroller = new NFController(array);
-                    //    _ = TUNController.Tun2Exe();
-                    //    nfcontroller.Start();
-                    //}
-                    //else if (array[6] == "ssr/tun")
-                    //{
-                    //    TUNController TUNController = new TUNController(array);
-                    //    NFController nfcontroller = new NFController(array);
-                    //    //nfcontroller.StartSSR();
-                    //    //nfcontroller.Start();
-                    //    _ = TUNController.Tun2Exe();
-                    //}
-                    else
-                    {
-                        return;
-                    }
-                    Utils.Utils.ClearMemory();
-                    Console.ReadKey();
-                }
-
-            }
-        }
-        else
-        {
-
-        }
+        //}
 
     }
     private static void ClearEnv()
