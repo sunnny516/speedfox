@@ -27,6 +27,7 @@ public static class Program
     [STAThread]
     private static void Main(string[] args)
     {
+        Console.WriteLine("Start SpeedProxy"); // 用中文写log就可以，反正用户也看不懂，用啥写都不会看
         //Firewall.RemoveRule();
         Task.WhenAll(Task.Run(Utils.Utils.NativeMethods.RefreshDNSCache), Task.Run(Firewall.AddRule));
         //判断当前登录用户是否为管理员
@@ -51,6 +52,7 @@ public static class Program
             {
                 // LogHelper.Error(ex.Message);
                 //    _ = MessageBox.Show("MuXunAccelerator", "程序无法获取Windows管理员身份 \n请手动使用Windows管理员身份运行!");
+                Console.WriteLine("程序无法获取Windows管理员身份 请手动使用Windows管理员身份运行!" , ex.Message);
                 return;
             }
             //退出
@@ -69,6 +71,7 @@ public static class Program
         Directory.SetCurrentDirectory(Application.StartupPath);
         var binPath = Path.Combine(pathtwo, "x64");
         Environment.SetEnvironmentVariable("PATH", $"{Environment.GetEnvironmentVariable("PATH")};{binPath}");
+
 
 
         // 这里的的启动方式基本属于报废，因为从nodejs启动带参数会导致子进程无法启动，不知道为什么
