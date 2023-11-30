@@ -397,6 +397,7 @@ public class TUNController
 
         // dns
         // NOTICE: DNS metric is network interface metric
+        
         tunNetworkInterface.SetDns("1.1.1.1");
         //RouteUtils.CreateRoute(_tun.FillTemplate("1.1.1.1", 32));
 
@@ -424,13 +425,11 @@ public class TUNController
         RouteUtils.CreateRouteFill(_tun, list2);
 
 
-
-
         RouteUtils.CreateRoute(_tun.FillTemplate(_tunConfig.DNS, 32));
 
-        _tunNetworkInterface.SetDns("1.1.1.1");
-
-
+        // Console.WriteLine("==============dns================" + number[2]);
+        // _tunNetworkInterface.SetDns("1.1.1.1");
+        _tunNetworkInterface.SetDns(number[2]);
 
         // set tun interface's metric to the highest to let Windows use the interface's DNS
         NetworkInterfaceUtils.SetInterfaceMetric(_tun.InterfaceIndex, 0);
