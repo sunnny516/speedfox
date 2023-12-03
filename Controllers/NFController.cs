@@ -1085,6 +1085,7 @@ internal class NFController
         if (result == NF_STATUS.NF_STATUS_SUCCESS)
         {
             Console.WriteLine("netfilter2 驱动状态成功！");
+            Console.WriteLine("NF2<====>OK");// 配置成功输出这个，让前端抓取
         }
         else
         {
@@ -1099,6 +1100,7 @@ internal class NFController
 
         this.Instance = new Process();
         this.Instance.StartInfo.FileName = "SpeedMains.exe";
+        this.Instance.StartInfo.WorkingDirectory = "" + string_0[4];  // 该模块对工作目录敏感，需要带入工作目录
         this.Instance.StartInfo.CreateNoWindow = false;
         this.Instance.StartInfo.UseShellExecute = false;
         this.Instance.EnableRaisingEvents = true;
@@ -1107,29 +1109,43 @@ internal class NFController
         string dns = "1.1.1.1";  // 获取的dns值
 
         //string arguments = $"-u 127.0.0.1:16877 -t {Decrypt(string_0[9])}:{Decrypt(string_0[2])} -user {Decrypt(string_0[3])} -pass {Decrypt(string_0[10])} -p \"{string_0[5]}\" -dns \"{dns}\"";
-        string arguments = $"-l 127.0.0.1:16877 -s {"127.0.0.1"}:{16877} -p \"{string_0[1]}\" -dns \"{dns}\"";
-
+        string arguments = $"-l 127.0.0.1:16780 -s {"127.0.0.1"}:{16780} -p \"{string_0[1]}\"";
+        //string arguments = $"-l 127.0.0.1:16877 -s {"127.0.0.1"}:{16877} -p \"{string_0[1]}\" -dns \"{dns}\"";
 
         this.Instance.StartInfo.Arguments = arguments;
         this.Instance.Start();
 
-        // Console.WriteLine("启动的变量:" + arguments);
+        Console.WriteLine("启动的变量:" + arguments);
 
         //if (this.Instance == null || this.Instance.HasExited)
         //{
         //    break;
         //}
 
+
+
+
         if (this.Instance != null && !this.Instance.HasExited)
         {
-
+            Console.WriteLine("Instance:111" );
         }
         else
         {
+            Console.WriteLine("Instance:222");
             this.Instance.Start();
             // 在此等待进程退出
             Instance.WaitForExit();
 
+        }
+
+        Console.WriteLine("主程序全部运行完成，等待不退出");
+        //实例化对象
+        EventWaitHandle _waitHandle = new AutoResetEvent(false);
+        //在线程函数中
+        while(true)
+        {
+            _waitHandle.WaitOne();
+            //事件发生后要做的任务
         }
 
         //for (int i = 0; i < 20; i++)

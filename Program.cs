@@ -85,8 +85,10 @@ public static class Program
         Directory.SetCurrentDirectory(Application.StartupPath);
         var binPath = Path.Combine(pathtwo, "x64");
         Environment.SetEnvironmentVariable("PATH", $"{Environment.GetEnvironmentVariable("PATH")};{binPath}");
-        
-        
+
+        Console.WriteLine("工作位置" + pathtwo);
+
+
         Console.WriteLine("读取启动配置");
         // 读取配置,因为路由表和进程有的游戏很多,直接传进来太多了,直接顶了,如果没有直接报错就好了,反正是用户乱搞的
         string SpeedProxy_config = File.ReadAllText("SpeedProxy.config.tmp");
@@ -98,11 +100,11 @@ public static class Program
             // 用 @ 分割，组装成数组
 
             // 数组定义
-            // 0:模式
+            // 0:模式   进程模式0    路由模式1
             // 1:进程或路由
             // 2:dns
             // 3:排除服务器IP (路由模式如果吧服务器代理上了会无限死循环,进程模式没有带上也行，不带的话也必须有这个数组)
-            // 
+            // 4:工作目录
 
 
 
@@ -116,7 +118,8 @@ public static class Program
                 // 安装修补 nf2 驱动
                 NFController.CheckDrivers();
 
-                // 启动加速进程
+                // 启动加速进程 这个有点特殊，在c#环境无法直接运行
+
                 nfcontroller.StartMains();
                 return;
             }

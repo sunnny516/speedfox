@@ -63,7 +63,7 @@ public class TUNController
         //}
         //else
         //{
-            Receiveds = $"socks5://{"127.0.0.1"}:{"16877"}";
+            Receiveds = $"socks5://{"127.0.0.1"}:{"16780"}";
         //}
 
         const string interfaceName = "SpeedFox";
@@ -162,6 +162,21 @@ public class TUNController
         // 日路由表
         SetupRouteTableAsync(number[1]);
 
+
+        Console.WriteLine("路由表配置完成！");
+
+        Console.WriteLine("Route<====>OK");// 配置成功输出这个，让前端抓取
+
+
+        Console.WriteLine("主程序全部运行完成，等待不退出");
+        //实例化对象
+        EventWaitHandle _waitHandle = new AutoResetEvent(false);
+        //在线程函数中
+        while (true)
+        {
+            _waitHandle.WaitOne();
+            //事件发生后要做的任务
+        }
 
         // 上古屎，勿动
         switch (number[9])
