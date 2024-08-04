@@ -1,1 +1,0 @@
-sniproxy.exe -d -c sniproxy-config.yaml

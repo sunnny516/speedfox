@@ -1,4 +1,0 @@
-enable_socks5: true
-allow_all_hosts: true
-socks_addr: 127.114.233.8:16789
-listen_addr: "127.114.233.8:443"
