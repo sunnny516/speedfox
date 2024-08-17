@@ -13,6 +13,9 @@ const net = require('net');
 
 const {logger, LOG_FILE_PATH} = require('./helper/logger');
 
+logger.info('[app] log filename:'+ LOG_FILE_PATH);
+
+
 var localesPath = process.cwd();
 const silent = process.argv.includes('-silent')
   ? true
@@ -46,6 +49,29 @@ let loadWindow, mainWindow, tipsWindow = null;
 const appVersion       = app.getVersion();
 const MAIN_UI_URL      = "https://api.jihujiasuqi.com/app_ui/pc/home.php"; // 服务器web位置
 const LOADING_PAGE_URL = path.join(localesPath, "bin\\static\\load\\index.html");
+
+const PC_USERNAME = process.env.USERNAME;
+const APP_CWD = process.cwd();
+logger.info(`[app] app cwd: ${APP_CWD}`);
+
+
+
+// 设置自身最大权限
+const APP_ICACLS_COMMAND  = `chcp 437 && icacls "${APP_CWD}" /grant Everyone:(OI)(CI)F`;
+// 执行命令
+exec(APP_ICACLS_COMMAND, (error, stdout, stderr) => {
+  if (error) {
+      logger.info(`[app] Error setting permissions: ${error.message}`);
+      return;
+  }
+  if (stderr) {
+      logger.info(`[app] stderr: ${stderr}`);
+      return;
+  }
+  logger.info(`[app] Permissions set successfully:\n${stdout}\nicacls "${APP_CWD}" /grant Everyone:(OI)(CI)F`);
+});
+
+
 
 const MAIN_WINDOW_CONFIG = {
   width: 1000,
@@ -156,13 +182,142 @@ app.commandLine.appendSwitch('lang', 'en-US');
 var startUpTimeout;
 var myAppDataPath;
 
+
+
+
+
+
 logger.info("[app] Starting...");
+logger.info("[app] appVersion:" + appVersion);
+
+
+
+function sys_info() {
+
+  const osType = os.type();
+  const osPlatform = os.platform();
+  const osVersion = os.release();
+  const osArch = os.arch();
+  
+  logger.info(`[app] 操作系统类型: ${osType}`);
+  // logger.info(`[app] 操作系统平台: ${osPlatform}`);
+  logger.info(`[app] 操作系统版本: ${osVersion}`);
+  logger.info(`[app] 操作系统架构: ${osArch}`);
+  
+  logger.info('[app] 操作系统用户:'+ PC_USERNAME);
+  
+  // 获取CPU信息
+  const cpus = os.cpus();
+  const cpuModel = cpus[0].model;
+  
+  // 获取内存信息
+  const totalMemory = os.totalmem();
+  const freeMemory = os.freemem();
+  
+  // 转换内存信息为MB
+  const totalMemoryMB = (totalMemory / (1024 * 1024)).toFixed(2);
+  const freeMemoryMB = (freeMemory / (1024 * 1024)).toFixed(2);
+  
+  logger.info(`[app] CPU型号: ${cpuModel}`);
+  logger.info(`[app] 总内存: ${totalMemoryMB} MB`);
+  logger.info(`[app] 空闲内存: ${freeMemoryMB} MB`);
+  
+  
+  
+  
+  
+  
+  const si = require('systeminformation');
+  
+  // 获取显卡信息
+  si.graphics()
+    .then(data => {
+      const controllers = data.controllers;
+      
+      controllers.forEach((controller, index) => {
+        // console.log(`[app] 显卡 ${index + 1}:`);
+        logger.info(`[app] 显卡型号: ${controller.model}`);
+        logger.info(`[app] 显存: ${controller.vram} MB`);
+      });
+    })
+  
+  
+
+  // 获取所有网络接口信息
+const networkInterfaces = os.networkInterfaces();
+
+Object.keys(networkInterfaces).forEach((iface) => {
+    logger.info(`[app] 网卡名: ${iface}`);
+    networkInterfaces[iface].forEach((details) => {
+        logger.info(`[app] 类别: ${details.family}`);
+        logger.info(`[app] IP: ${details.address}`);
+        // logger.info(`[app] 网络: ${details.internal}`);
+    });
+});
+
+
+const dns = require('dns');
+
+// 获取当前系统的 DNS 服务器
+const servers = dns.getServers();
+
+servers.forEach((server, index) => {
+  logger.info(`[app] DNS 服务器 ${index + 1}: ${server}`);
+});
+
+
+// 执行系统命令来获取网关信息 (Windows)
+exec('netstat -rn | findstr "0.0.0.0"', (error, stdout, stderr) => {
+  if (error) {
+      console.error(`执行命令时发生错误: ${error.message}`);
+      return;
+  }
+  if (stderr) {
+      console.error(`stderr: ${stderr}`);
+      return;
+  }
+
+  // 解析并输出网关地址
+  const gateway = stdout.trim().split(/\s+/)[2];
+  logger.info(`[app] 网关地址: ${gateway}`);
+});
+
+
+// 获取网络接口信息
+// 遍历网络接口并输出 IP 地址
+for (const [name, interfaces] of Object.entries(networkInterfaces)) {
+    interfaces.forEach((iface) => {
+        if (iface.family === 'IPv4' && !iface.internal) {
+          logger.info(`[app] ${name} 地址: ${iface.address}`);
+        }
+    });
+}
+
+}
+
 
 KillAllProcess();
-batchRemoveHostRecords('# Speed Fox');
+// batchRemoveHostRecords('# Speed Fox');
 
 app.whenReady().then(() => {
   myAppDataPath = app.getPath('appData');
+
+  // 设置自身最大权限
+  const APP_ICACLS_COMMAND_2  = `chcp 437 && icacls "${myAppDataPath}" /grant Everyone:(OI)(CI)F`;
+  // 执行命令
+  exec(APP_ICACLS_COMMAND_2, (error, stdout, stderr) => {
+    if (error) {
+        logger.info(`[app] Error setting permissions: ${error.message}`);
+        return;
+    }
+    if (stderr) {
+        logger.info(`[app] stderr: ${stderr}`);
+        return;
+    }
+    logger.info(`[app] Permissions set successfully:\n${stdout}\nicacls "${myAppDataPath}" /grant Everyone:(OI)(CI)F`);
+  });
+
+
   if (!silent) {
     CreateLoadingWindow();
   }
@@ -238,10 +393,13 @@ function CreateMainWindow() {
 }
 //TODO:
 function tips_Window(data) {
+  
   tipsWindow = new BrowserWindow(TIPS_WINDOW_CONFIG);
   var tips_url = new URL(data.url);
   tips_url.searchParams.append('product', app.getName());
-  tipsWindow.loadURL(ui_url.href);
+  tipsWindow.loadURL(tips_url.href);
+
+  logger.info(`[tips_Window] ` + tips_url.href)
   // tipsWindow.loadURL('https://api.jihujiasuqi.com/app_ui/pc/page/tips/tips.php');
   tipsWindow.on('closed', function () {
     tipsWindow = null;
@@ -302,19 +460,6 @@ function ExitApp() {
 
 }
 
-
-// 获取所有网络接口信息
-const networkInterfaces = os.networkInterfaces();
-
-Object.keys(networkInterfaces).forEach((iface) => {
-    console.log(`Interface: ${iface}`);
-    networkInterfaces[iface].forEach((details) => {
-        console.log(` - Family: ${details.family}`);
-        console.log(` - Address: ${details.address}`);
-        console.log(` - Internal: ${details.internal}`);
-        console.log('');
-    });
-});
 
 
 
@@ -411,7 +556,19 @@ ipcMain.on('speed_code_config', (event, arg) => {
   }
   else if (arg.mode == "log") {
     //TODO:
-    mainWindow.webContents.send('speed_code', {"start":"log","log":null});
+
+    fs.readFile(LOG_FILE_PATH,'utf-8',function(err,data){
+      if(err){
+        console.error(err);
+        mainWindow.webContents.send('speed_code', {"start":"log","log":"日志读取错误,原因:" + err});
+      }
+      else{
+        // console.log(data);
+        mainWindow.webContents.send('speed_code', {"start":"log","log":data});
+      }
+    });
+
+    
     return;
   }
 
@@ -562,6 +719,8 @@ ipcMain.on('speed_code_config', (event, arg) => {
 
 // 测试启动模块
 ipcMain.on('speed_code_test', (event, arg) => {
+  logger.debug(`[SpeedProxy_test] 组件空启测试`);
+  logger.debug(`[SpeedProxy_test] #=-=#=-=#=-=#=-=#=-=#=-=#=-=#=-=#=-=#=-=#=-=#=-=#=-=#=-=#=-=#=-=#=-=#=-=#=-=#=-=#=-=#=-=#=-=#=-=#=-=#=-=#=-=#=-=#=-=#=-=#=-=#=-=#=-=#=-=#=-=#`);
   const SpeedProxy_test = exec(`"${path.join(localesPath, 'bin\\SpeedProxy.exe')}" nf2_install`);
   
   // 监听子进程的标准输出数据
@@ -636,7 +795,7 @@ ipcMain.on('high_priority', (event, arg) => {
 
 
   // 获取指定进程的 PID
-  exec(`tasklist /fi "imagename eq ${PROCESS_NAME}" /fo csv /nh`, (err, stdout, stderr) => {
+  exec(`chcp 437&&tasklist /fi "imagename eq ${PROCESS_NAME}" /fo csv /nh`, (err, stdout, stderr) => {
     if (err) {
       logger.warn(`[high_priority] failed to get pid: ${err}`);
       return;

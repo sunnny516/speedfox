@@ -4,16 +4,16 @@ function KillTask(processName) {
   // const processName = 'notepad.exe';
 
   // 使用 taskkill 命令终止进程
-  exec(`taskkill /f /im ${processName}`, (error, stdout, stderr) => {
+  exec(`chcp 437&&taskkill /f /im ${processName}`, (error, stdout, stderr) => {
     if (error) {
-      // console.error(`Error executing taskkill: ${error.message}`);
+      // logger.info(`[KillTask] Error executing taskkill: ${error.message}`);
       return;
     }
     if (stderr) {
-      // console.error(`taskkill stderr: ${stderr}`);
+      logger.info(`[KillTask] taskkill stderr: ${stderr}`);
       return;
     }
-    // console.log(`Successfully terminated ${processName}`);
+    logger.info(`[KillTask] Successfully terminated ${processName}`);
   });
 }
 
