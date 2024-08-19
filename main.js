@@ -9,6 +9,7 @@ const request = require('request');
 const net = require('net');
 
 
+const tempDir = os.tmpdir();
 
 
 const {logger, LOG_FILE_PATH} = require('./helper/logger');
@@ -303,19 +304,19 @@ app.whenReady().then(() => {
   myAppDataPath = app.getPath('appData');
 
   // 设置自身最大权限
-  const APP_ICACLS_COMMAND_2  = `chcp 437 && icacls "${myAppDataPath}" /grant Everyone:(OI)(CI)F`;
-  // 执行命令
-  exec(APP_ICACLS_COMMAND_2, (error, stdout, stderr) => {
-    if (error) {
-        logger.info(`[app] Error setting permissions: ${error.message}`);
-        return;
-    }
-    if (stderr) {
-        logger.info(`[app] stderr: ${stderr}`);
-        return;
-    }
-    logger.info(`[app] Permissions set successfully:\n${stdout}\nicacls "${myAppDataPath}" /grant Everyone:(OI)(CI)F`);
-  });
+  // const APP_ICACLS_COMMAND_2  = `chcp 437 && icacls "${myAppDataPath}" /grant Everyone:(OI)(CI)F`;
+  // // 执行命令
+  // exec(APP_ICACLS_COMMAND_2, (error, stdout, stderr) => {
+  //   if (error) {
+  //       logger.info(`[app] Error setting permissions: ${error.message}`);
+  //       return;
+  //   }
+  //   if (stderr) {
+  //       logger.info(`[app] stderr: ${stderr}`);
+  //       return;
+  //   }
+  //   logger.info(`[app] Permissions set successfully:\n${stdout}\nicacls "${myAppDataPath}" /grant Everyone:(OI)(CI)F`);
+  // });
 
 
   if (!silent) {
@@ -594,7 +595,7 @@ ipcMain.on('speed_code_config', (event, arg) => {
     datagameconfig = datagameconfig + dataArray[i].replaceAll('\r\n','').replaceAll('\r','') + ",";  // windows 是\r\n linux是 \r
   }
 
-  Fox_writeFile(path.join(localesPath, 'bin\\config\\game_config_nf2'), datagameconfig); // 写入nf2配置
+  Fox_writeFile(path.join(tempDir, '\\speedfox_game_config_nf2'), datagameconfig); // 写入nf2配置
 
   net_config = Buffer.from(arg.Game_config.net_config, 'base64').toString('utf-8');
   const dataArray2 = net_config.split("\n");
@@ -604,7 +605,7 @@ ipcMain.on('speed_code_config', (event, arg) => {
   }
   datagameconfig = datagameconfig + "@" + arg.Server_config.ip
 
-  Fox_writeFile(path.join(localesPath, 'bin\\config\\game_config_wintun'), datagameconfig) // 写入WINTUN配置
+  Fox_writeFile(path.join(tempDir, '\\speedfox_game_config_wintun'), datagameconfig) // 写入WINTUN配置
 
   mainWindow.webContents.send('speed_code_config-reply', 'OK'); // 发送ok
 
@@ -615,7 +616,7 @@ ipcMain.on('speed_code_config', (event, arg) => {
     const gost_args = [
       '-api', '127.114.233.8:17080',
       '-metrics', '127.114.233.8:15088',
-      '-L', 'socks5://:16780?udp=true',
+      '-L', 'socks5://127.114.233.8:16780?udp=true',
       '-F', `${arg.Server_config.connect_mode}://${arg.Server_config.method}:${arg.Server_config.token}@${arg.Server_config.ip}:${arg.Server_config.port}`
     ];
 
@@ -733,7 +734,6 @@ ipcMain.on('speed_code_test', (event, arg) => {
     logger.warn(`[SpeedProxy_test] stderr: ${data}`);
     mainWindow.webContents.send('speed_code_test', data);
   });
-
 });
 
 // 开启 开机自启动
@@ -931,7 +931,7 @@ ipcMain.on('speed_code_config_exe', (event, arg) => {
 
 
 ipcMain.on('socks_connect_test', (event, arg) => {
-  const brook = exec(`"${path.join(localesPath, 'bin\\SpeedNet_brook.exe')}" testsocks5 -s 127.0.0.1:16780`);
+  const brook = exec(`"${path.join(localesPath, 'bin\\SpeedNet_brook.exe')}" testsocks5 -s 127.114.233.8:16780`);
 
  // 监听子进程的标准输出数据
   brook.stdout.on('data', (data) => {
