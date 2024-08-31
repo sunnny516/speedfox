@@ -1,4 +1,17 @@
-const { app, BrowserWindow, Tray, Menu , ipcMain, dialog } = require('electron');
+/***  错误不弹出  ***/
+// 捕获主进程未捕获的异常
+process.on('uncaughtException', (error) => {
+  console.error('主进程发生未捕获的异常:', error);
+});
+
+// 捕获未处理的Promise拒绝
+process.on('unhandledRejection', (reason, promise) => {
+  console.error('主进程未处理的Promise拒绝:', reason);
+});
+/***  错误不弹出  ***/
+
+
+const { app, BrowserWindow, Tray, Menu , ipcMain, dialog , shell  } = require('electron');
 
 const path = require('path');
 const fs = require('fs');
@@ -24,14 +37,7 @@ const silent = process.argv.includes('-silent')
 
 
 
-/***  错误不弹出  ***/
-process.on('uncaughtException', (error) => {
-  logger.error('Uncaught Exception:', error);
-});
-process.on('unhandledRejection', (reason, promise) => {
-  logger.error('Unhandled Rejection at:', promise, 'reason:', reason);
-});
-/***  错误不弹出  ***/
+
 
 process.argv.forEach(function (item, index, array) {
   if (item.includes("-workdir")) {
@@ -160,12 +166,17 @@ const Framework = {
 
 const instanceLock = app.requestSingleInstanceLock();
 if (!instanceLock) {
+  
+  logger.info(`[app] 客户端已存在。互斥锁触发！`);
   app.quit()
 } else {
   app.on('second-instance', (event, commandLine, workingDirectory) => {
     if (mainWindow) {
       if (mainWindow.isMinimized()) mainWindow.restore();
+      logger.info(`[app] 互斥锁触发！ (01)`);
       mainWindow.focus();
+    }else{
+      logger.info(`[app] 互斥锁触发！ (02)`);
     }
   })
 }
@@ -296,7 +307,7 @@ for (const [name, interfaces] of Object.entries(networkInterfaces)) {
 
 }
 
-
+logger.info(`[app] 结束关联组件`);
 KillAllProcess();
 // batchRemoveHostRecords('# Speed Fox');
 
@@ -323,13 +334,38 @@ app.whenReady().then(() => {
     CreateLoadingWindow();
   }
   startUpTimeout = setTimeout(() => {
-    loadWindow.close();
-    ExitApp();
-  }, 15 * 1000);
+    logger.info(`[app] 服务器连接超时。结束进程...`);
+
+    dialog.showMessageBox(loadWindow,{
+      type: "warning",
+      title: "启动超时",
+      message: "服务器连接失败！",
+      buttons:["退出程序","重新启动"],
+    }).then((index)=>{
+      logger.info(`[app] 用户选择了` + index.response);
+
+      if(index.response === 0){
+        logger.info(`[app] 用户选择了退出程序`);
+        loadWindow.close();
+        ExitApp();
+        app.exit();
+      }
+      if(index.response === 1){
+        logger.info(`[app] 用户选择了重启`);
+        app.relaunch();
+        loadWindow.close();
+        ExitApp();
+        app.exit();
+      }
+    })
+
+    
+  }, 16 * 1000);
   CreateMainWindow();
 });
 
 app.on('window-all-closed', function () {
+  logger.info(`[app] 全部窗口被关闭  (342)`);
   ExitApp();
   // if (process.platform !== 'darwin'){ }
 });
@@ -391,6 +427,13 @@ function CreateMainWindow() {
     // return false;
   });
 
+
+  // 外部打开链接
+  mainWindow.webContents.on('new-window', function(e, url) {
+    e.preventDefault();
+    require('electron').shell.openExternal(url);
+  })
+  
 }
 //TODO:
 function tips_Window(data) {
@@ -669,12 +712,14 @@ ipcMain.on('speed_code_config', (event, arg) => {
   // setTimeout(function(){
     logger.debug(`[SpeedProxy] mode ${arg.mode}`);
 
-    const SpeedProxy_args = [
-      arg.mode
-    ];
+    // const SpeedProxy_args = [
+    //   arg.mode
+    // ];
 
-    const SpeedProxy = execFile(path.join(localesPath, 'bin\\SpeedProxy.exe'),SpeedProxy_args);
-    
+    // const SpeedProxy = execFile(path.join(localesPath, 'bin\\SpeedProxy.exe'),SpeedProxy_args);
+    const SpeedProxy = exec('"' + path.join(localesPath, 'bin\\SpeedProxy.exe') + '"' +" " + arg.mode);
+
+
     // 监听子进程的标准输出数据
     SpeedProxy.stdout.on('data', (data) => {
       if(data.includes('"Bandwidth":{') ){

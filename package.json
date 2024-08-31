@@ -1,6 +1,6 @@
 {
   "name": "speedfox",
-  "version": "4.0.7",
+  "version": "4.0.8",
   "main": "main.js",
   "scripts": {
     "start": "chcp 65001;electron .",
