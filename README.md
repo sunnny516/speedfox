@@ -1,5 +1,10 @@
 ![speed_logo_black_background](https://github.com/user-attachments/assets/aed5aa60-575a-4d1c-9878-bb3f7f0073e5)
 
+
+开源不等于免费，未经授权禁止商业行为，商业经营需购买授权！
+![image](https://jihujiasuqi.com/assets/images/rz.jpg)
+
+
 # SpeedFox 极狐游戏加速器
 [![](https://img.shields.io/badge/项目主页-SpeedFox-blue)](https://github.com/sunnny516/speedfox)
 [![](https://img.shields.io/badge/极狐官网-SpeedFox-black)](https://www.jihujiasuqi.com/)

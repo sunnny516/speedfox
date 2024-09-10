@@ -55,7 +55,7 @@ let loadWindow, mainWindow, tipsWindow = null;
 
 const appVersion       = app.getVersion();
 const MAIN_UI_URL      = "https://api.jihujiasuqi.com/app_ui/pc/home.php"; // 服务器web位置
-const LOADING_PAGE_URL = path.join(localesPath, "bin\\static\\load\\index.html");
+const LOADING_PAGE_URL = path.join(localesPath, "bin\\static\\load2\\index.html");
 
 const PC_USERNAME = process.env.USERNAME;
 const APP_CWD = process.cwd();
